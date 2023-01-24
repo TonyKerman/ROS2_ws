@@ -1,0 +1,11 @@
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/uninstall.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/pubsub_cpp_uninstall.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/talker.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/listener.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/test.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/edit_cache.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/rebuild_cache.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/list_install_components.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/install.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/install/local.dir
+/root/ros2_ws/build/pubsub_cpp/CMakeFiles/install/strip.dir

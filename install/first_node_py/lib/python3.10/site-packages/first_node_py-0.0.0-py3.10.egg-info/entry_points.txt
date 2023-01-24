@@ -1,0 +1,4 @@
+[console_scripts]
+node02 = first_node_py.code:main
+node03 = first_node_py.code2:main
+

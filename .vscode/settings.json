@@ -1,0 +1,10 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/src/cpp_pubsub",
+    "cmake.configureOnOpen": true,
+    "python.autoComplete.extraPaths": [
+        "/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages",
+        "/root/ros2_ws/install/first_node_py/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
