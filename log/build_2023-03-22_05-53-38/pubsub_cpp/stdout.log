@@ -1,0 +1,20 @@
+[100%] Built target listener
+[100%] Built target talker
+-- Install configuration: ""
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/talker
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/listener
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/package_run_dependencies/pubsub_cpp
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/parent_prefix_path/pubsub_cpp
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/ament_prefix_path.sh
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/ament_prefix_path.dsv
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/path.sh
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/path.dsv
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.bash
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.sh
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.zsh
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.dsv
+-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/package.dsv
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/packages/pubsub_cpp
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/cmake/pubsub_cppConfig.cmake
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/cmake/pubsub_cppConfig-version.cmake
+-- Up-to-date: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/package.xml

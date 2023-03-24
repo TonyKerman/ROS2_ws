@@ -1,0 +1,5 @@
+[console_scripts]
+client01 = srvcli_py.client01:main
+client02 = srvcli_py.client02:main
+service = srvcli_py.service_member_function:main
+

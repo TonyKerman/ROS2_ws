@@ -1,0 +1,65 @@
+[0.017s] Invoking command in '/root/ros2_ws/build/pubsub_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/pubsub_cpp -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/pubsub_cpp
+[0.141s] -- The C compiler identification is GNU 11.3.0
+[0.141s] -- The CXX compiler identification is GNU 11.3.0
+[0.141s] -- Detecting C compiler ABI info
+[0.178s] -- Detecting C compiler ABI info - done
+[0.183s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.183s] -- Detecting C compile features
+[0.183s] -- Detecting C compile features - done
+[0.185s] -- Detecting CXX compiler ABI info
+[0.229s] -- Detecting CXX compiler ABI info - done
+[0.236s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.236s] -- Detecting CXX compile features
+[0.237s] -- Detecting CXX compile features - done
+[0.238s] -- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.336s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+[0.393s] -- Found rclcpp: 16.0.2 (/opt/ros/humble/share/rclcpp/cmake)
+[0.419s] -- Found rosidl_generator_c: 3.1.4 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.422s] -- Found rosidl_adapter: 3.1.4 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.428s] -- Found rosidl_generator_cpp: 3.1.4 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.436s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.447s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.486s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.488s] -- Found rmw_fastrtps_cpp: 6.2.2 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.542s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.558s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.585s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.593s] -- Looking for pthread.h
+[0.631s] -- Looking for pthread.h - found
+[0.631s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.671s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.671s] -- Found Threads: TRUE  
+[0.795s] -- Configuring done
+[0.801s] -- Generating done
+[0.802s] -- Build files have been written to: /root/ros2_ws/build/pubsub_cpp
+[0.807s] Invoked command in '/root/ros2_ws/build/pubsub_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/pubsub_cpp -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/pubsub_cpp
+[0.808s] Invoking command in '/root/ros2_ws/build/pubsub_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/pubsub_cpp -- -j20 -l20
+[0.831s] [ 50%] [32mBuilding CXX object CMakeFiles/listener.dir/src/subscriber_member_function.cpp.o[0m
+[0.831s] [ 50%] [32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o[0m
+[3.113s] [ 75%] [32m[1mLinking CXX executable talker[0m
+[3.235s] [ 75%] Built target talker
+[5.027s] [100%] [32m[1mLinking CXX executable listener[0m
+[5.216s] [100%] Built target listener
+[5.222s] Invoked command in '/root/ros2_ws/build/pubsub_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/pubsub_cpp -- -j20 -l20
+[5.240s] Invoking command in '/root/ros2_ws/build/pubsub_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/pubsub_cpp
+[5.244s] -- Install configuration: ""
+[5.244s] -- Installing: /root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/talker
+[5.245s] -- Set runtime path of "/root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/talker" to ""
+[5.245s] -- Installing: /root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/listener
+[5.248s] -- Set runtime path of "/root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/listener" to ""
+[5.248s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/package_run_dependencies/pubsub_cpp
+[5.248s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/parent_prefix_path/pubsub_cpp
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/ament_prefix_path.sh
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/ament_prefix_path.dsv
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/path.sh
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/path.dsv
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.bash
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.sh
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.zsh
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.dsv
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/package.dsv
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/packages/pubsub_cpp
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/cmake/pubsub_cppConfig.cmake
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/cmake/pubsub_cppConfig-version.cmake
+[5.249s] -- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/package.xml
+[5.252s] Invoked command in '/root/ros2_ws/build/pubsub_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/pubsub_cpp

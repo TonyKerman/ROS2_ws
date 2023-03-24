@@ -1,0 +1,1 @@
+Invoking command in '/root/ros2_ws/build/pubsub_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/pubsub_cpp -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/pubsub_cpp

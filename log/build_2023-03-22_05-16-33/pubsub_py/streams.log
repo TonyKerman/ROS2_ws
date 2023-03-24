@@ -1,0 +1,43 @@
+[0.408s] Invoking command in '/root/ros2_ws/src/learning_node/pubsub_py': PYTHONPATH=/root/ros2_ws/build/pubsub_py/prefix_override:/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/pubsub_py build --build-base /root/ros2_ws/build/pubsub_py/build install --record /root/ros2_ws/build/pubsub_py/install.log --single-version-externally-managed
+[0.514s] running egg_info
+[0.514s] creating ../../../build/pubsub_py/pubsub_py.egg-info
+[0.514s] writing ../../../build/pubsub_py/pubsub_py.egg-info/PKG-INFO
+[0.515s] writing dependency_links to ../../../build/pubsub_py/pubsub_py.egg-info/dependency_links.txt
+[0.515s] writing entry points to ../../../build/pubsub_py/pubsub_py.egg-info/entry_points.txt
+[0.515s] writing requirements to ../../../build/pubsub_py/pubsub_py.egg-info/requires.txt
+[0.515s] writing top-level names to ../../../build/pubsub_py/pubsub_py.egg-info/top_level.txt
+[0.515s] writing manifest file '../../../build/pubsub_py/pubsub_py.egg-info/SOURCES.txt'
+[0.516s] reading manifest file '../../../build/pubsub_py/pubsub_py.egg-info/SOURCES.txt'
+[0.516s] writing manifest file '../../../build/pubsub_py/pubsub_py.egg-info/SOURCES.txt'
+[0.516s] running build
+[0.516s] running build_py
+[0.516s] creating /root/ros2_ws/build/pubsub_py/build
+[0.516s] creating /root/ros2_ws/build/pubsub_py/build/lib
+[0.517s] creating /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py
+[0.517s] copying pubsub_py/__init__.py -> /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py
+[0.517s] copying pubsub_py/subscriber_member_function.py -> /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py
+[0.517s] copying pubsub_py/publisher_member_function.py -> /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py
+[0.517s] running install
+[0.517s] running install_lib
+[0.517s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.517s]   warnings.warn(
+[0.517s] creating /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py
+[0.517s] copying /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py/__init__.py -> /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py
+[0.517s] copying /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py/subscriber_member_function.py -> /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py
+[0.517s] copying /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py/publisher_member_function.py -> /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py
+[0.517s] byte-compiling /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py/__init__.py to __init__.cpython-310.pyc
+[0.518s] byte-compiling /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py/subscriber_member_function.py to subscriber_member_function.cpython-310.pyc
+[0.518s] byte-compiling /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py/publisher_member_function.py to publisher_member_function.cpython-310.pyc
+[0.518s] running install_data
+[0.518s] creating /root/ros2_ws/install/pubsub_py/share/ament_index
+[0.518s] creating /root/ros2_ws/install/pubsub_py/share/ament_index/resource_index
+[0.518s] creating /root/ros2_ws/install/pubsub_py/share/ament_index/resource_index/packages
+[0.518s] copying resource/pubsub_py -> /root/ros2_ws/install/pubsub_py/share/ament_index/resource_index/packages
+[0.518s] copying package.xml -> /root/ros2_ws/install/pubsub_py/share/pubsub_py
+[0.518s] running install_egg_info
+[0.519s] Copying ../../../build/pubsub_py/pubsub_py.egg-info to /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py-0.0.0-py3.10.egg-info
+[0.519s] running install_scripts
+[0.532s] Installing listener script to /root/ros2_ws/install/pubsub_py/lib/pubsub_py
+[0.532s] Installing talker script to /root/ros2_ws/install/pubsub_py/lib/pubsub_py
+[0.532s] writing list of installed files to '/root/ros2_ws/build/pubsub_py/install.log'
+[0.546s] Invoked command in '/root/ros2_ws/src/learning_node/pubsub_py' returned '0': PYTHONPATH=/root/ros2_ws/build/pubsub_py/prefix_override:/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/pubsub_py build --build-base /root/ros2_ws/build/pubsub_py/build install --record /root/ros2_ws/build/pubsub_py/install.log --single-version-externally-managed

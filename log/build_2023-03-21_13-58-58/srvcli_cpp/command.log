@@ -1,0 +1,2 @@
+Invoking command in '/root/ros2_ws/build/srvcli_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/srvcli_cpp -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/srvcli_cpp
+Invoked command in '/root/ros2_ws/build/srvcli_cpp' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/srvcli_cpp -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/srvcli_cpp

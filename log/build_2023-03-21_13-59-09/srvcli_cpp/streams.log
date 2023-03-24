@@ -1,0 +1,7 @@
+[0.638s] Invoking command in '/root/ros2_ws/build/srvcli_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/srvcli_cpp -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/srvcli_cpp
+[0.647s] [31mCMake Error at CMakeLists.txt:29:
+[0.648s]   Parse error.  Expected a newline, got identifier with text "install".
+[0.650s] 
+[0.652s] [0m
+[0.652s] -- Configuring incomplete, errors occurred!
+[0.653s] Invoked command in '/root/ros2_ws/build/srvcli_cpp' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/srvcli_cpp -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/srvcli_cpp

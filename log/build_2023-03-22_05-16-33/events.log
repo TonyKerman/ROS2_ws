@@ -1,0 +1,216 @@
+[0.000000] (-) TimerEvent: {}
+[0.000152] (pubsub_cpp) JobQueued: {'identifier': 'pubsub_cpp', 'dependencies': OrderedDict()}
+[0.000175] (pubsub_py) JobQueued: {'identifier': 'pubsub_py', 'dependencies': OrderedDict()}
+[0.000185] (srvcli_py) JobQueued: {'identifier': 'srvcli_py', 'dependencies': OrderedDict()}
+[0.001240] (pubsub_cpp) JobStarted: {'identifier': 'pubsub_cpp'}
+[0.008729] (pubsub_py) JobStarted: {'identifier': 'pubsub_py'}
+[0.012495] (srvcli_py) JobStarted: {'identifier': 'srvcli_py'}
+[0.017381] (pubsub_cpp) JobProgress: {'identifier': 'pubsub_cpp', 'progress': 'cmake'}
+[0.017486] (pubsub_cpp) Command: {'cmd': ['/usr/bin/cmake', '/root/ros2_ws/src/learning_node/pubsub_cpp', '-DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/pubsub_cpp'], 'cwd': '/root/ros2_ws/build/pubsub_cpp', 'env': OrderedDict([('HOSTNAME', 'ros2_project'), ('GIT_ASKPASS', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/helpers/browser.sh'), ('HOME', '/root'), ('TERM_PROGRAM_VERSION', '1.76.2'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-ab9f6eb3-0306-4cb5-bafe-a9b5c422c233.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('COLCON_PREFIX_PATH', '/root/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-bd149c38-9ef6-40d1-889f-b9827cd04982.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock","/tmp/.X11-unix/X2","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', 'unix:1'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-2305d418c6.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock'), ('AMENT_PREFIX_PATH', '/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node_py:/root/ros2_ws/install/first_node:/opt/ros/humble'), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X2'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/root/ros2_ws/build/pubsub_cpp'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages:/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages:/root/ros2_ws/install/first_node_py/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble')]), 'shell': False}
+[0.099931] (-) TimerEvent: {}
+[0.141754] (pubsub_cpp) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.3.0\n'}
+[0.142019] (pubsub_cpp) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.3.0\n'}
+[0.142571] (pubsub_cpp) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.179580] (pubsub_cpp) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.183767] (pubsub_cpp) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.183889] (pubsub_cpp) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.184338] (pubsub_cpp) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.186185] (pubsub_cpp) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.200052] (-) TimerEvent: {}
+[0.230273] (pubsub_cpp) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.237261] (pubsub_cpp) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.237383] (pubsub_cpp) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.237747] (pubsub_cpp) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.238888] (pubsub_cpp) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.300170] (-) TimerEvent: {}
+[0.337260] (pubsub_cpp) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter \n'}
+[0.394117] (pubsub_cpp) StdoutLine: {'line': b'-- Found rclcpp: 16.0.2 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.400248] (-) TimerEvent: {}
+[0.415176] (pubsub_py) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../../build/pubsub_py', 'build', '--build-base', '/root/ros2_ws/build/pubsub_py/build', 'install', '--record', '/root/ros2_ws/build/pubsub_py/install.log', '--single-version-externally-managed'], 'cwd': '/root/ros2_ws/src/learning_node/pubsub_py', 'env': {'HOSTNAME': 'ros2_project', 'GIT_ASKPASS': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/helpers/browser.sh', 'HOME': '/root', 'TERM_PROGRAM_VERSION': '1.76.2', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-ab9f6eb3-0306-4cb5-bafe-a9b5c422c233.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'COLCON_PREFIX_PATH': '/root/ros2_ws/install', 'ROS_DISTRO': 'humble', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-bd149c38-9ef6-40d1-889f-b9827cd04982.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock","/tmp/.X11-unix/X2","/root/.gnupg/S.gpg-agent"]', 'DISPLAY': 'unix:1', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/vscode-git-2305d418c6.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock', 'AMENT_PREFIX_PATH': '/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node_py:/root/ros2_ws/install/first_node:/opt/ros/humble', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X2', 'SHELL': '/bin/bash', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/root/ros2_ws/build/pubsub_py', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/ros2_ws/build/pubsub_py/prefix_override:/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages:/root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages:/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages:/root/ros2_ws/install/first_node_py/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node'}, 'shell': False}
+[0.420303] (pubsub_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.4 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.423342] (pubsub_cpp) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.4 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.428911] (pubsub_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.4 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.429034] (srvcli_py) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../../build/srvcli_py', 'build', '--build-base', '/root/ros2_ws/build/srvcli_py/build', 'install', '--record', '/root/ros2_ws/build/srvcli_py/install.log', '--single-version-externally-managed'], 'cwd': '/root/ros2_ws/src/learning_node/srvcli_py', 'env': {'HOSTNAME': 'ros2_project', 'GIT_ASKPASS': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/helpers/browser.sh', 'HOME': '/root', 'TERM_PROGRAM_VERSION': '1.76.2', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-ab9f6eb3-0306-4cb5-bafe-a9b5c422c233.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'COLCON_PREFIX_PATH': '/root/ros2_ws/install', 'ROS_DISTRO': 'humble', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-bd149c38-9ef6-40d1-889f-b9827cd04982.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock","/tmp/.X11-unix/X2","/root/.gnupg/S.gpg-agent"]', 'DISPLAY': 'unix:1', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/vscode-git-2305d418c6.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock', 'AMENT_PREFIX_PATH': '/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node_py:/root/ros2_ws/install/first_node:/opt/ros/humble', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X2', 'SHELL': '/bin/bash', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/root/ros2_ws/build/srvcli_py', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/ros2_ws/build/srvcli_py/prefix_override:/root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages:/root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages:/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages:/root/ros2_ws/install/first_node_py/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node'}, 'shell': False}
+[0.436727] (pubsub_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.448004] (pubsub_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.487283] (pubsub_cpp) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.488735] (pubsub_cpp) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.2 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.500502] (-) TimerEvent: {}
+[0.522824] (pubsub_py) StdoutLine: {'line': b'running egg_info\n'}
+[0.523075] (pubsub_py) StdoutLine: {'line': b'creating ../../../build/pubsub_py/pubsub_py.egg-info\n'}
+[0.523190] (pubsub_py) StdoutLine: {'line': b'writing ../../../build/pubsub_py/pubsub_py.egg-info/PKG-INFO\n'}
+[0.523348] (pubsub_py) StdoutLine: {'line': b'writing dependency_links to ../../../build/pubsub_py/pubsub_py.egg-info/dependency_links.txt\n'}
+[0.523440] (pubsub_py) StdoutLine: {'line': b'writing entry points to ../../../build/pubsub_py/pubsub_py.egg-info/entry_points.txt\n'}
+[0.523507] (pubsub_py) StdoutLine: {'line': b'writing requirements to ../../../build/pubsub_py/pubsub_py.egg-info/requires.txt\n'}
+[0.523568] (pubsub_py) StdoutLine: {'line': b'writing top-level names to ../../../build/pubsub_py/pubsub_py.egg-info/top_level.txt\n'}
+[0.523627] (pubsub_py) StdoutLine: {'line': b"writing manifest file '../../../build/pubsub_py/pubsub_py.egg-info/SOURCES.txt'\n"}
+[0.524182] (pubsub_py) StdoutLine: {'line': b"reading manifest file '../../../build/pubsub_py/pubsub_py.egg-info/SOURCES.txt'\n"}
+[0.524479] (pubsub_py) StdoutLine: {'line': b"writing manifest file '../../../build/pubsub_py/pubsub_py.egg-info/SOURCES.txt'\n"}
+[0.524692] (pubsub_py) StdoutLine: {'line': b'running build\n'}
+[0.524883] (pubsub_py) StdoutLine: {'line': b'running build_py\n'}
+[0.524956] (pubsub_py) StdoutLine: {'line': b'creating /root/ros2_ws/build/pubsub_py/build\n'}
+[0.525022] (pubsub_py) StdoutLine: {'line': b'creating /root/ros2_ws/build/pubsub_py/build/lib\n'}
+[0.525198] (pubsub_py) StdoutLine: {'line': b'creating /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py\n'}
+[0.525373] (pubsub_py) StdoutLine: {'line': b'copying pubsub_py/__init__.py -> /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py\n'}
+[0.525444] (pubsub_py) StdoutLine: {'line': b'copying pubsub_py/subscriber_member_function.py -> /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py\n'}
+[0.525509] (pubsub_py) StdoutLine: {'line': b'copying pubsub_py/publisher_member_function.py -> /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py\n'}
+[0.525596] (pubsub_py) StdoutLine: {'line': b'running install\n'}
+[0.525674] (pubsub_py) StdoutLine: {'line': b'running install_lib\n'}
+[0.525733] (pubsub_py) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[0.525809] (pubsub_py) StderrLine: {'line': b'  warnings.warn(\n'}
+[0.525872] (pubsub_py) StdoutLine: {'line': b'creating /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py\n'}
+[0.525948] (pubsub_py) StdoutLine: {'line': b'copying /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py/__init__.py -> /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py\n'}
+[0.526020] (pubsub_py) StdoutLine: {'line': b'copying /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py/subscriber_member_function.py -> /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py\n'}
+[0.526079] (pubsub_py) StdoutLine: {'line': b'copying /root/ros2_ws/build/pubsub_py/build/lib/pubsub_py/publisher_member_function.py -> /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py\n'}
+[0.526140] (pubsub_py) StdoutLine: {'line': b'byte-compiling /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py/__init__.py to __init__.cpython-310.pyc\n'}
+[0.526219] (pubsub_py) StdoutLine: {'line': b'byte-compiling /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py/subscriber_member_function.py to subscriber_member_function.cpython-310.pyc\n'}
+[0.526286] (pubsub_py) StdoutLine: {'line': b'byte-compiling /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py/publisher_member_function.py to publisher_member_function.cpython-310.pyc\n'}
+[0.526364] (pubsub_py) StdoutLine: {'line': b'running install_data\n'}
+[0.526600] (pubsub_py) StdoutLine: {'line': b'creating /root/ros2_ws/install/pubsub_py/share/ament_index\n'}
+[0.526684] (pubsub_py) StdoutLine: {'line': b'creating /root/ros2_ws/install/pubsub_py/share/ament_index/resource_index\n'}
+[0.526767] (pubsub_py) StdoutLine: {'line': b'creating /root/ros2_ws/install/pubsub_py/share/ament_index/resource_index/packages\n'}
+[0.526829] (pubsub_py) StdoutLine: {'line': b'copying resource/pubsub_py -> /root/ros2_ws/install/pubsub_py/share/ament_index/resource_index/packages\n'}
+[0.526889] (pubsub_py) StdoutLine: {'line': b'copying package.xml -> /root/ros2_ws/install/pubsub_py/share/pubsub_py\n'}
+[0.526950] (pubsub_py) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.527554] (pubsub_py) StdoutLine: {'line': b'Copying ../../../build/pubsub_py/pubsub_py.egg-info to /root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages/pubsub_py-0.0.0-py3.10.egg-info\n'}
+[0.527846] (pubsub_py) StdoutLine: {'line': b'running install_scripts\n'}
+[0.535674] (srvcli_py) StdoutLine: {'line': b'running egg_info\n'}
+[0.536065] (srvcli_py) StdoutLine: {'line': b'creating ../../../build/srvcli_py/srvcli_py.egg-info\n'}
+[0.536148] (srvcli_py) StdoutLine: {'line': b'writing ../../../build/srvcli_py/srvcli_py.egg-info/PKG-INFO\n'}
+[0.536295] (srvcli_py) StdoutLine: {'line': b'writing dependency_links to ../../../build/srvcli_py/srvcli_py.egg-info/dependency_links.txt\n'}
+[0.536419] (srvcli_py) StdoutLine: {'line': b'writing entry points to ../../../build/srvcli_py/srvcli_py.egg-info/entry_points.txt\n'}
+[0.536485] (srvcli_py) StdoutLine: {'line': b'writing requirements to ../../../build/srvcli_py/srvcli_py.egg-info/requires.txt\n'}
+[0.536545] (srvcli_py) StdoutLine: {'line': b'writing top-level names to ../../../build/srvcli_py/srvcli_py.egg-info/top_level.txt\n'}
+[0.536604] (srvcli_py) StdoutLine: {'line': b"writing manifest file '../../../build/srvcli_py/srvcli_py.egg-info/SOURCES.txt'\n"}
+[0.537246] (srvcli_py) StdoutLine: {'line': b"reading manifest file '../../../build/srvcli_py/srvcli_py.egg-info/SOURCES.txt'\n"}
+[0.537608] (srvcli_py) StdoutLine: {'line': b"writing manifest file '../../../build/srvcli_py/srvcli_py.egg-info/SOURCES.txt'\n"}
+[0.537707] (srvcli_py) StdoutLine: {'line': b'running build\n'}
+[0.537780] (srvcli_py) StdoutLine: {'line': b'running build_py\n'}
+[0.537954] (srvcli_py) StdoutLine: {'line': b'creating /root/ros2_ws/build/srvcli_py/build\n'}
+[0.538140] (srvcli_py) StdoutLine: {'line': b'creating /root/ros2_ws/build/srvcli_py/build/lib\n'}
+[0.538230] (srvcli_py) StdoutLine: {'line': b'creating /root/ros2_ws/build/srvcli_py/build/lib/srvcli_py\n'}
+[0.538298] (srvcli_py) StdoutLine: {'line': b'copying srvcli_py/__init__.py -> /root/ros2_ws/build/srvcli_py/build/lib/srvcli_py\n'}
+[0.538362] (srvcli_py) StdoutLine: {'line': b'copying srvcli_py/service_member_function.py -> /root/ros2_ws/build/srvcli_py/build/lib/srvcli_py\n'}
+[0.538424] (srvcli_py) StdoutLine: {'line': b'copying srvcli_py/client_member_function.py -> /root/ros2_ws/build/srvcli_py/build/lib/srvcli_py\n'}
+[0.538486] (srvcli_py) StdoutLine: {'line': b'running install\n'}
+[0.538548] (srvcli_py) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[0.538642] (srvcli_py) StderrLine: {'line': b'  warnings.warn(\n'}
+[0.538803] (srvcli_py) StdoutLine: {'line': b'running install_lib\n'}
+[0.538876] (srvcli_py) StdoutLine: {'line': b'creating /root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages/srvcli_py\n'}
+[0.538942] (srvcli_py) StdoutLine: {'line': b'copying /root/ros2_ws/build/srvcli_py/build/lib/srvcli_py/__init__.py -> /root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages/srvcli_py\n'}
+[0.539020] (srvcli_py) StdoutLine: {'line': b'copying /root/ros2_ws/build/srvcli_py/build/lib/srvcli_py/service_member_function.py -> /root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages/srvcli_py\n'}
+[0.539085] (srvcli_py) StdoutLine: {'line': b'copying /root/ros2_ws/build/srvcli_py/build/lib/srvcli_py/client_member_function.py -> /root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages/srvcli_py\n'}
+[0.539158] (srvcli_py) StdoutLine: {'line': b'byte-compiling /root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages/srvcli_py/__init__.py to __init__.cpython-310.pyc\n'}
+[0.539220] (srvcli_py) StdoutLine: {'line': b'byte-compiling /root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages/srvcli_py/service_member_function.py to service_member_function.cpython-310.pyc\n'}
+[0.539325] (srvcli_py) StdoutLine: {'line': b'byte-compiling /root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages/srvcli_py/client_member_function.py to client_member_function.cpython-310.pyc\n'}
+[0.539563] (srvcli_py) StdoutLine: {'line': b'running install_data\n'}
+[0.539779] (srvcli_py) StdoutLine: {'line': b'creating /root/ros2_ws/install/srvcli_py/share/ament_index\n'}
+[0.539870] (srvcli_py) StdoutLine: {'line': b'creating /root/ros2_ws/install/srvcli_py/share/ament_index/resource_index\n'}
+[0.539952] (srvcli_py) StdoutLine: {'line': b'creating /root/ros2_ws/install/srvcli_py/share/ament_index/resource_index/packages\n'}
+[0.540014] (srvcli_py) StdoutLine: {'line': b'copying resource/srvcli_py -> /root/ros2_ws/install/srvcli_py/share/ament_index/resource_index/packages\n'}
+[0.540074] (srvcli_py) StdoutLine: {'line': b'copying package.xml -> /root/ros2_ws/install/srvcli_py/share/srvcli_py\n'}
+[0.540144] (srvcli_py) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.540297] (pubsub_py) StdoutLine: {'line': b'Installing listener script to /root/ros2_ws/install/pubsub_py/lib/pubsub_py\n'}
+[0.540453] (pubsub_py) StdoutLine: {'line': b'Installing talker script to /root/ros2_ws/install/pubsub_py/lib/pubsub_py\n'}
+[0.540539] (pubsub_py) StdoutLine: {'line': b"writing list of installed files to '/root/ros2_ws/build/pubsub_py/install.log'\n"}
+[0.540766] (srvcli_py) StdoutLine: {'line': b'Copying ../../../build/srvcli_py/srvcli_py.egg-info to /root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages/srvcli_py-0.0.0-py3.10.egg-info\n'}
+[0.541090] (srvcli_py) StdoutLine: {'line': b'running install_scripts\n'}
+[0.543229] (pubsub_cpp) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.553640] (pubsub_py) CommandEnded: {'returncode': 0}
+[0.554661] (srvcli_py) StdoutLine: {'line': b'Installing service script to /root/ros2_ws/install/srvcli_py/lib/srvcli_py\n'}
+[0.555358] (srvcli_py) StdoutLine: {'line': b"writing list of installed files to '/root/ros2_ws/build/srvcli_py/install.log'\n"}
+[0.559416] (pubsub_cpp) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.562721] (pubsub_py) JobEnded: {'identifier': 'pubsub_py', 'rc': 0}
+[0.567776] (srvcli_py) CommandEnded: {'returncode': 0}
+[0.571875] (srvcli_py) JobEnded: {'identifier': 'srvcli_py', 'rc': 0}
+[0.586612] (pubsub_cpp) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.593785] (pubsub_cpp) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.600622] (-) TimerEvent: {}
+[0.631936] (pubsub_cpp) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.632312] (pubsub_cpp) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.671679] (pubsub_cpp) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.672424] (pubsub_cpp) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.700743] (-) TimerEvent: {}
+[0.796441] (pubsub_cpp) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.800856] (-) TimerEvent: {}
+[0.802488] (pubsub_cpp) StdoutLine: {'line': b'-- Generating done\n'}
+[0.803250] (pubsub_cpp) StdoutLine: {'line': b'-- Build files have been written to: /root/ros2_ws/build/pubsub_cpp\n'}
+[0.808397] (pubsub_cpp) CommandEnded: {'returncode': 0}
+[0.808699] (pubsub_cpp) JobProgress: {'identifier': 'pubsub_cpp', 'progress': 'build'}
+[0.808725] (pubsub_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/ros2_ws/build/pubsub_cpp', '--', '-j20', '-l20'], 'cwd': '/root/ros2_ws/build/pubsub_cpp', 'env': OrderedDict([('HOSTNAME', 'ros2_project'), ('GIT_ASKPASS', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/helpers/browser.sh'), ('HOME', '/root'), ('TERM_PROGRAM_VERSION', '1.76.2'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-ab9f6eb3-0306-4cb5-bafe-a9b5c422c233.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('COLCON_PREFIX_PATH', '/root/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-bd149c38-9ef6-40d1-889f-b9827cd04982.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock","/tmp/.X11-unix/X2","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', 'unix:1'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-2305d418c6.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock'), ('AMENT_PREFIX_PATH', '/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node_py:/root/ros2_ws/install/first_node:/opt/ros/humble'), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X2'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/root/ros2_ws/build/pubsub_cpp'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages:/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages:/root/ros2_ws/install/first_node_py/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble')]), 'shell': False}
+[0.832377] (pubsub_cpp) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/listener.dir/src/subscriber_member_function.cpp.o\x1b[0m\n'}
+[0.832557] (pubsub_cpp) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o\x1b[0m\n'}
+[0.901076] (-) TimerEvent: {}
+[1.001440] (-) TimerEvent: {}
+[1.101782] (-) TimerEvent: {}
+[1.202160] (-) TimerEvent: {}
+[1.302413] (-) TimerEvent: {}
+[1.402788] (-) TimerEvent: {}
+[1.503169] (-) TimerEvent: {}
+[1.603550] (-) TimerEvent: {}
+[1.703837] (-) TimerEvent: {}
+[1.804219] (-) TimerEvent: {}
+[1.904481] (-) TimerEvent: {}
+[2.004781] (-) TimerEvent: {}
+[2.105161] (-) TimerEvent: {}
+[2.205541] (-) TimerEvent: {}
+[2.305834] (-) TimerEvent: {}
+[2.406219] (-) TimerEvent: {}
+[2.506608] (-) TimerEvent: {}
+[2.606988] (-) TimerEvent: {}
+[2.707357] (-) TimerEvent: {}
+[2.807729] (-) TimerEvent: {}
+[2.908102] (-) TimerEvent: {}
+[3.008486] (-) TimerEvent: {}
+[3.108865] (-) TimerEvent: {}
+[3.114338] (pubsub_cpp) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable talker\x1b[0m\n'}
+[3.208994] (-) TimerEvent: {}
+[3.236428] (pubsub_cpp) StdoutLine: {'line': b'[ 75%] Built target talker\n'}
+[3.309212] (-) TimerEvent: {}
+[3.409597] (-) TimerEvent: {}
+[3.509985] (-) TimerEvent: {}
+[3.610370] (-) TimerEvent: {}
+[3.710744] (-) TimerEvent: {}
+[3.811129] (-) TimerEvent: {}
+[3.911513] (-) TimerEvent: {}
+[4.011891] (-) TimerEvent: {}
+[4.112258] (-) TimerEvent: {}
+[4.212520] (-) TimerEvent: {}
+[4.312913] (-) TimerEvent: {}
+[4.413196] (-) TimerEvent: {}
+[4.513578] (-) TimerEvent: {}
+[4.613958] (-) TimerEvent: {}
+[4.714323] (-) TimerEvent: {}
+[4.814701] (-) TimerEvent: {}
+[4.915080] (-) TimerEvent: {}
+[5.015342] (-) TimerEvent: {}
+[5.028478] (pubsub_cpp) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable listener\x1b[0m\n'}
+[5.115562] (-) TimerEvent: {}
+[5.215935] (-) TimerEvent: {}
+[5.217204] (pubsub_cpp) StdoutLine: {'line': b'[100%] Built target listener\n'}
+[5.222869] (pubsub_cpp) CommandEnded: {'returncode': 0}
+[5.236297] (pubsub_cpp) JobProgress: {'identifier': 'pubsub_cpp', 'progress': 'install'}
+[5.241338] (pubsub_cpp) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/ros2_ws/build/pubsub_cpp'], 'cwd': '/root/ros2_ws/build/pubsub_cpp', 'env': OrderedDict([('HOSTNAME', 'ros2_project'), ('GIT_ASKPASS', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/helpers/browser.sh'), ('HOME', '/root'), ('TERM_PROGRAM_VERSION', '1.76.2'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-ab9f6eb3-0306-4cb5-bafe-a9b5c422c233.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('COLCON_PREFIX_PATH', '/root/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-bd149c38-9ef6-40d1-889f-b9827cd04982.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/root/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock","/tmp/.X11-unix/X2","/root/.gnupg/S.gpg-agent"]'), ('DISPLAY', 'unix:1'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-2305d418c6.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/tmp/vscode-ssh-auth-bd149c38-9ef6-40d1-889f-b9827cd04982.sock'), ('AMENT_PREFIX_PATH', '/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node_py:/root/ros2_ws/install/first_node:/opt/ros/humble'), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X2'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/root/ros2_ws/build/pubsub_cpp'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/root/ros2_ws/install/srvcli_py/lib/python3.10/site-packages:/root/ros2_ws/install/pubsub_py/lib/python3.10/site-packages:/root/ros2_ws/install/first_node_py/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/root/ros2_ws/install/pubsub_cpp:/root/ros2_ws/install/first_node:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/root/ros2_ws/install/first_node_py:/opt/ros/humble')]), 'shell': False}
+[5.244937] (pubsub_cpp) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.245458] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/talker\n'}
+[5.246357] (pubsub_cpp) StdoutLine: {'line': b'-- Set runtime path of "/root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/talker" to ""\n'}
+[5.246464] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/listener\n'}
+[5.249360] (pubsub_cpp) StdoutLine: {'line': b'-- Set runtime path of "/root/ros2_ws/install/pubsub_cpp/lib/pubsub_cpp/listener" to ""\n'}
+[5.249521] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/package_run_dependencies/pubsub_cpp\n'}
+[5.249606] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/parent_prefix_path/pubsub_cpp\n'}
+[5.249716] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/ament_prefix_path.sh\n'}
+[5.249813] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/ament_prefix_path.dsv\n'}
+[5.249880] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/path.sh\n'}
+[5.249945] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/environment/path.dsv\n'}
+[5.250009] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.bash\n'}
+[5.250120] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.sh\n'}
+[5.250202] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.zsh\n'}
+[5.250266] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/local_setup.dsv\n'}
+[5.250327] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/package.dsv\n'}
+[5.250389] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/ament_index/resource_index/packages/pubsub_cpp\n'}
+[5.250451] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/cmake/pubsub_cppConfig.cmake\n'}
+[5.250513] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/cmake/pubsub_cppConfig-version.cmake\n'}
+[5.250574] (pubsub_cpp) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/pubsub_cpp/share/pubsub_cpp/package.xml\n'}
+[5.251254] (pubsub_cpp) CommandEnded: {'returncode': 0}
+[5.277654] (pubsub_cpp) JobEnded: {'identifier': 'pubsub_cpp', 'rc': 0}
+[5.278333] (-) EventReactorShutdown: {}
