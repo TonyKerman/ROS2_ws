@@ -67,7 +67,7 @@ take first_node for example
     source install/setup.bash #necessary
     ros2 run first_node node01 # "node01" is the exceutable which is set in CMakeLists.txt
 
-## write and run in python 写代码并构建运行 C++
+## write and run in python 写代码并构建运行 py
 
 1. create a package
 

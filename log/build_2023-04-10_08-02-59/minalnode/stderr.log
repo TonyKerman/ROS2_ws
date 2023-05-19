@@ -1,0 +1,4 @@
+[31mCMake Error at CMakeLists.txt:25 (install):
+  install TARGETS given target "node01" which does not exist.
+
+[0m
