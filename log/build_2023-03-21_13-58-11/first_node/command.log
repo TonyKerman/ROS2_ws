@@ -1,1 +1,0 @@
-Invoking command in '/root/ros2_ws/build/first_node': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/first_node -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/first_node

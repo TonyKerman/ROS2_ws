@@ -17,69 +17,49 @@ then
     sudo apt install docker-compose
 5. write a Dockerfile and docker-compose.yml
 
-### Dockerfile
+[Dockerfile](../Dockerfile)
 
-```
-FROM osrf/ros:humble-desktop
-RUN apt update &&apt upgrade -y && apt-get install -y openssh-server gdb gdbserver python3-pip
-    #安装rosdepc<https://zhuanlan.zhihu.com/p/398754989>
-RUN sudo pip install rosdepc 
-
-RUN sudo rosdepc init && rosdepc update
-
-USER root
-
-RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
-
-# 创建项目源码目录，这个目录将成为 Container 里面构建和执行的工作区
-RUN mkdir -p /root/ros2_ws
-WORKDIR /root/ros2_ws
-ENV LC_ALL C.UTF-8
-
-```
-
-### docker-compose.yml
-
-```
-version: "3.9"
-
-x-defaults: &default
-  restart: unless-stopped
-#  使用当前目录的 Dockerfile 来构建 docker 镜像
-  build: .
-  # build from specific image
-  image : tony/ros2:demo
-  volumes:
-    - /home/tony/ROS2_ws:/root/ros2_ws
-    # function along with"- DISPLAY=unix$DISPLAY" to enable Qt 
-    - /tmp/.X11-unix:/tmp/.X11-unix
-  networks:
-    - default
-    
-services:
-  my-project:
-    <<: *default
-    container_name: ros2_project
-    hostname: "ros2_project"
-    user: root
-    working_dir: /root/ros2_ws
-
-#   同时通过 tailf 命令保持 container 不要退出的状态
-    command:
-      bash -c "tail -f /dev/null"
-    environment:
-      - DISPLAY=unix$DISPLAY
-```
-
-5  build
-
-    docker build -t tony/ros2:demo .
-    docker-compose up -d
-    xhost +
-6 use vscode open it
-  in vscode install ROS open container in left bar "remote resource..." complete settings 
+[docker-compose.yml](../docker-compose.yml)
 
 * [https://www.allaban.me/posts/2020/08/ros2-setup-ide-docker/]
 * [https://imhuwq.com/2018/12/02/Clion%20%E4%BD%BF%E7%94%A8%20Docker%20%E4%BD%9C%E4%B8%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/]
 * [https://zhuanlan.zhihu.com/p/520752548]
 
+# Install micro ros
+
+## 1.配置环境
+
+micro_ros 官方教程地址：[Overview](https://micro.ros.org/docs/tutorials/core/first_application_rtos/freertos/)
+
+主要内容是：
+
+First micro-ROS application on Linux 链接
+
+First micro-ROS Application on FreeRTOS 链接
+
+这个只是通用教程，可以先看看。把 micro_ros_agent 安装好
+(跳过Configuring the firmware部分)
+
+## 2.micro_ros_stm32cubemx_utils
+
+https://github.com/micro-ROS/micro_ros_stm32cubemx_utils
+
+# 解决RVIZ2黑屏问题
+[https://github.com/ros2/rviz/issues/948]
+
+    add-apt-repository ppa:kisak/kisak-mesa && apt install -y mesa-utils && glxgears
+
+其中 glxgears 是测试3d功能的，不安装也行
+
+如果提示add-apt-repository commond not found
+    
+    sudo apt install --reinstall software-properties-common
+
+PPA换源：
+
+    gedit sources.list.d/kisak-ubuntu-kisak-mesa-jammy.list
+
+    deb https://launchpad.proxy.ustclug.org/kisak/kisak-mesa/ubuntu/ jammy main
+    # deb-src https://ppa.launchpadcontent.net/kisak/kisak-mesa/ubuntu/ jammy main
+
+    apt update -y && apt upgrade

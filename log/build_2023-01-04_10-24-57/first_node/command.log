@@ -1,6 +1,0 @@
-Invoking command in '/root/ros2_ws/build/first_node': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/first_node -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/first_node
-Invoked command in '/root/ros2_ws/build/first_node' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/first_node -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/first_node
-Invoking command in '/root/ros2_ws/build/first_node': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/first_node -- -j20 -l20
-Invoked command in '/root/ros2_ws/build/first_node' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/first_node -- -j20 -l20
-Invoking command in '/root/ros2_ws/build/first_node': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/first_node
-Invoked command in '/root/ros2_ws/build/first_node' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/first_node

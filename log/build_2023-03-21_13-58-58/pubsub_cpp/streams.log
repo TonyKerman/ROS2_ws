@@ -1,7 +1,0 @@
-[0.392s] Invoking command in '/root/ros2_ws/build/pubsub_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/pubsub_cpp -- -j20 -l20
-[0.767s] [35m[1mConsolidate compiler generated dependencies of target talker[0m
-[0.767s] [35m[1mConsolidate compiler generated dependencies of target listener[0m
-[0.767s] [ 25%] [32m[1mLinking CXX executable talker[0m
-[0.767s] [ 50%] [32m[1mLinking CXX executable listener[0m
-[0.800s] [ 75%] Built target talker
-[1.119s] [100%] Built target listener

@@ -1,8 +1,0 @@
-source;share/minalnode/hook/cmake_prefix_path.ps1
-source;share/minalnode/hook/cmake_prefix_path.dsv
-source;share/minalnode/hook/cmake_prefix_path.sh
-source;share/minalnode/local_setup.bash
-source;share/minalnode/local_setup.dsv
-source;share/minalnode/local_setup.ps1
-source;share/minalnode/local_setup.sh
-source;share/minalnode/local_setup.zsh

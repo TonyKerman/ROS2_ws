@@ -1,2 +1,0 @@
-Invoking command in '/root/ros2_ws/build/minalnode': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/minalnode -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/minalnode
-Invoked command in '/root/ros2_ws/build/minalnode' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/srvcli_py:/root/ros2_ws/install/pubsub_py:/opt/ros/humble /usr/bin/cmake /root/ros2_ws/src/learning_node/minalnode -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/minalnode
