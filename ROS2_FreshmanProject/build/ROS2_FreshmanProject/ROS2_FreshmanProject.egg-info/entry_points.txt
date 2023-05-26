@@ -1,0 +1,5 @@
+[console_scripts]
+mpu_node = ROS2_FreshmanProject.Mpu:main
+serial_node = ROS2_FreshmanProject.Serial:main
+servo_node = ROS2_FreshmanProject.Servo:main
+

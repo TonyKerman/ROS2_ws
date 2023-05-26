@@ -23,11 +23,6 @@ class SerialNode(Node):
 
     def read_serial(self):
         while True:
-            if not self.serial_port.is_open:
-                try:
-                    self.serial_port = serial.Serial(ports[0][0], 115200) # change this to your serial port and baud rate
-                except IndexError:
-                    self.get_logger().info('No serial port found')
             byte = self.serial_port.read(1)
             # decode the byte as UTF-8
             if byte == b'\x55' and self.serial_port.read(1) == b'\x55':
@@ -45,17 +40,7 @@ class SerialNode(Node):
             else:
                 pass
                 
-    # def publish_data(self):
-
-    #     while not self.data_queue.empty(): # check if the queue is not empty
-    #         data = self.data_queue.get() # get the data from the queue
-    #         msg = String()
-    #         msg.data = data
-    #         self.publisher.publish(msg) # publish the data as a string message
-    #         self.get_logger().info('Publishing: "%s"' % msg.data)
-    #     else:
-    #         pass
-    def publish_mpuData(self):
+    def publish_data(self):
 
         while not self.data_queue.empty(): # check if the queue is not empty
             data = self.data_queue.get() # get the data from the queue
@@ -72,7 +57,7 @@ def main(args=None):
     rclpy.init(args=args)
     serial_node = SerialNode()
     while rclpy.ok():
-        rclpy.spin_once(serial_node,timeout_sec=0.01) # spin once to handle callbacks
+        rclpy.spin_once(serial_node,timeout_sec=0.1) # spin once to handle callbacks
         serial_node.publish_data() # publish the data from the queue
     
     serial_node.destroy_node()
