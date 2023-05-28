@@ -21,8 +21,9 @@ setup(
     entry_points={
         'console_scripts': [
             'serial_node = ROS2_FreshmanProject.Serial:main',
-            'servo_node = ROS2_FreshmanProject.Servo:main',
-            'mpu_node = ROS2_FreshmanProject.Mpu:main',
+            'tf2_node = ROS2_FreshmanProject.TFculculate:main',
+            #'servo_node = ROS2_FreshmanProject.Servo:main',
+            #'mpu_node = ROS2_FreshmanProject.Mpu:main',
         ],
     },
 )
