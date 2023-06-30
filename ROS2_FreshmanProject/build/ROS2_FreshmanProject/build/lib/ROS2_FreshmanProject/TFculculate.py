@@ -108,32 +108,28 @@ class TF_Publisher(Node):
 
     
     def mpu_callback(self,msg):
-
-        def mpu_decode(quats):
-            q30 = float(1073741824.0)
-            # q0  = quats[0]/q30
-            # q1  = quats[1]/q30
-            # q2  = quats[2]/q30
-            # q3  = quats[3]/q30
-            q0  = quats[0]
-            q1  = quats[1]
-            q2  = quats[2]
-            q3  = quats[3]
-            angle = np.array([0,0,0])
-            angle[0] = np.arcsin(-2 * q1 * q3 + 2 * q0 * q2) * 57.3   # pitch
-            angle[1]= np.arctan2(2 * q2 * q3 + 2 * q0 * q1, -2 * q1 * q1 - 2 * q2 * q2 + 1) * 57.3;    # roll
-            angle[2]= np.arctan2(2 * (q1 * q2 + q0 * q3), q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3) * 57.3;    #yaw
-            return angle
-        r = Rotation.from_euler('x',-np.pi)
-        r1 =Rotation.from_quat(msg.data)
-        M =r.as_matrix()@r1.as_matrix()
-        r = Rotation.from_matrix(M)
-
-
-        
-        #self.mpu_q = r.as_quat()
-        self.mpu_q = msg.data
-        #mpu_decode(res)
+        #当串口输出xy角度弧度时
+        ruler = np.array([0,-msg.data[0]/65535,msg.data[1]/65535])
+        R = Rotation.from_euler('zyx',ruler,degrees=False)
+        self.mpu_q = R.as_quat()
+        #当串口是四元数时
+        # def mpu_decode(quats):
+        #     q30 = float(1073741824.0)
+        #     # q0  = quats[0]/q30
+        #     # q1  = quats[1]/q30
+        #     # q2  = quats[2]/q30
+        #     # q3  = quats[3]/q30
+        #     q0  = quats[0]
+        #     q1  = quats[1]
+        #     q2  = quats[2]
+        #     q3  = quats[3]
+        #     angle = np.array([0,0,0])
+        #     angle[0] = np.arcsin(-2 * q1 * q3 + 2 * q0 * q2) * 57.3   # pitch
+        #     angle[1]= np.arctan2(2 * q2 * q3 + 2 * q0 * q1, -2 * q1 * q1 - 2 * q2 * q2 + 1) * 57.3;    # roll
+        #     angle[2]= np.arctan2(2 * (q1 * q2 + q0 * q3), q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3) * 57.3;    #yaw
+        #     return angle
+        #self.mpu_q = msg.data
+ 
 
     def servo_callback(self,msg):
         self.servoAngles = msg.data

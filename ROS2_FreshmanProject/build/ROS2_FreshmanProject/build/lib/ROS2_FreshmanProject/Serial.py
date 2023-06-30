@@ -6,6 +6,7 @@ import serial
 import serial.tools.list_ports
 import queue
 import threading
+from time import sleep
 
 
 
@@ -26,7 +27,8 @@ class SerialNode(Node):
         self.get_logger().info('Serial node has been started')
         self.read_thread.start() # start the thread
 
-
+#读串口数据帧，并根据帧类型选择解码
+#注意，发送给解码函数时已经去掉校验位
     def read_serial(self):
         
         while True:
@@ -36,6 +38,8 @@ class SerialNode(Node):
                         self.serial_port = serial.Serial(self.ports[0][0], 115200) # change this to your serial port and baud rate
                     except IndexError:
                         self.get_logger().info('No serial port found')
+                        sleep(0.3)
+                        continue
                 byte = self.serial_port.read(1)
                 # decode the byte as UTF-8
                 if byte == b'\x55' and self.serial_port.read(1) == b'\x55':
@@ -59,12 +63,11 @@ class SerialNode(Node):
 
 
     def mDecode_MpuMsg(self, rawData):
-        # l = [rawData[i:i+4] for i in range(0,len(rawData),4)]
-        # for i in range(0,len(l),2):
-        #     val.append(int(l[i]+l[i+1],16))
+       
         val =[]
-        for i in range(0,len(rawData),4):
-            val.append(int.from_bytes(rawData[i:i+4],byteorder='big',signed=True))
+        datalen = 4
+        for i in range(0,len(rawData),datalen):
+            val.append(int.from_bytes(rawData[i:i+datalen],byteorder='big',signed=True))
         return val
     
     def mDecode_ServoMsg(self,rawData):
@@ -72,8 +75,9 @@ class SerialNode(Node):
         # for i in range(0,len(l),2):
         #     val.append(int(l[i]+l[i+1],16))
         val =[]
-        for i in range(0,len(rawData),2):
-            val.append(int.from_bytes(rawData[i:i+2],byteorder='big',signed=False))
+        datalen = 2
+        for i in range(0,len(rawData),datalen):
+            val.append(int.from_bytes(rawData[i:i+datalen],byteorder='big',signed=False))
 
         n =4
         bis = [800,1155,400,700]
