@@ -1,0 +1,22 @@
+running egg_info
+writing build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/PKG-INFO
+writing dependency_links to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/dependency_links.txt
+writing entry points to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/entry_points.txt
+writing requirements to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/requires.txt
+writing top-level names to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/top_level.txt
+reading manifest file 'build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/SOURCES.txt'
+writing manifest file 'build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying launch/demo.launch.py -> /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/share/ROS2_FreshmanProject/launch
+running install_egg_info
+removing '/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages/ROS2_FreshmanProject-0.0.0-py3.10.egg-info' (and everything under it)
+Copying build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages/ROS2_FreshmanProject-0.0.0-py3.10.egg-info
+running install_scripts
+Installing control_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+Installing serial_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+Installing tf2_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+writing list of installed files to '/root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/install.log'

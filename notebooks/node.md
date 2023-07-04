@@ -1,73 +1,51 @@
-# Node in ROS2 
+# 创建一个工作区
+# 创建一个节点
+
+## 1. 在工作区根目录下 
+
+        cd src/
+
+## 2. 创建节点
+
+        ros2 pkg create  minalnode --build-type ament_cmake
+一般来说，要添加依赖
+
+对于cpp节点
+
+        ros2 pkg create minalnode --build-type ament_cmake --dependencies rclcpp
+对于py节点 rclcpp改为rclpy
+
+## 3. 创建编写源文件
+
+在minalnode下
+
+        cd/src
+        touch node01.cpp
+编写cpp文件
+
+[node01.cpp](../src/learning_node/minalnode/src/node01.cpp)
 
 
-## create a workspace 创建工作区
-A trivial workspace might look like:
+## 4.修改CMakeListstxt
+ 
+[CMakeListstxt](../src/learning_node/minalnode/CMakeLists.txt)
 
-    workspace_folder/
-    src/
-      package_1/
-          CMakeLists.txt
-          package.xml
-
-      package_2/
-          setup.py
-          package.xml
-          resource/package_2
-      ...
-      package_n/
-          CMakeLists.txt
-          package.xml
-### create a package(cmake):创建包
-
-    ros2 pkg create --build-type ament_cmake <package_name>
-
-* <http://d2lros2foxy.fishros.com/#/humble/chapt2/advanced/2.%E4%BD%BF%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%96%B9%E5%BC%8F%E7%BC%96%E5%86%99ROS2%E8%8A%82%E7%82%B9>
-
-* <https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html>
-
-## write and build/run in c++ 写代码并构建运行 C++
-take first_node for example
-* write first_node/src/code.cpp
-
-* edit CMakeLists.txt
-
-  ">>" is what we need to add in the file
-
-        cmake_minimum_required(VERSION 3.8)
-        project(first_node)
-
-        if(NOT CMAKE_CXX_STANDARD)
-        set(CMAKE_CXX_STANDARD 14)
-        endif()
-
-        if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-        add_compile_options(-Wall -Wextra -Wpedantic)
-        endif()
-
-        # find dependencies
-        find_package(ament_cmake REQUIRED)
-        >>find_package(rclcpp REQUIRED)
-        # uncomment the following section in order to fill in
-        # further dependencies manually.
-        # find_package(<dependency> REQUIRED)
-
-        >>add_executable(node_01 src/code.cpp)
-        >>ament_target_dependencies(node_01 rclcpp)
-        >>install(TARGETS
-        >>node_01
-        >>DESTINATION lib/${PROJECT_NAME}
-
+        find_package(rclcpp REQUIRED) #对应了创建节点时 --dependencies rclcpp
+        add_executable(firstnode src/code.cpp) #添加执行入口
+        ament_target_dependencies(node01 rclcpp) #找rclcpp
+        install(TARGETS
+        node01
+        DESTINATION lib/${PROJECT_NAME}
         )
 
-        ament_package()
-* in terminal:
- >>
-    colcon build [colcon build --packages-select example_cpp]
-    source install/setup.bash #necessary
-    ros2 run first_node node01 # "node01" is the exceutable which is set in CMakeLists.txt
+## 5. 编译并运行
 
-## write and run in python 写代码并构建运行 py
+        colcon build --packages-select minalnode
+        source install/setup.bash
+        ros2 run minalnode node01
+
+
+# write and run in python 写代码并构建运行 py
 
 1. create a package
 

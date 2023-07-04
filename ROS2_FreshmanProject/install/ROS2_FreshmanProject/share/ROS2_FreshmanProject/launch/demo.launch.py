@@ -12,6 +12,10 @@ def generate_launch_description():
         package="ROS2_FreshmanProject",
         executable="tf2_node"
     )
+    # action_control_01 = Node(
+    #     package="ROS2_FreshmanProject",
+    #     executable="control_node"
+    # )
     # 创建LaunchDescription对象launch_description,用于描述launch文件
     launch_description = LaunchDescription(
         [action_robot_01, action_control_01])

@@ -1,0 +1,53 @@
+[0.007s] Invoking command in '/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface': CMAKE_PREFIX_PATH=/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject:/opt/ros/humble /usr/bin/cmake /root/2ROS2workspace/freshmanproject_interface -DCMAKE_INSTALL_PREFIX=/root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface
+[0.096s] -- The C compiler identification is GNU 11.3.0
+[0.146s] -- The CXX compiler identification is GNU 11.3.0
+[0.151s] -- Detecting C compiler ABI info
+[0.205s] -- Detecting C compiler ABI info - done
+[0.209s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.209s] -- Detecting C compile features
+[0.210s] -- Detecting C compile features - done
+[0.212s] -- Detecting CXX compiler ABI info
+[0.257s] -- Detecting CXX compiler ABI info - done
+[0.261s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.261s] -- Detecting CXX compile features
+[0.261s] -- Detecting CXX compile features - done
+[0.263s] -- Found ament_cmake: 1.3.4 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.362s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+[0.419s] -- Found std_msgs: 4.2.3 (/opt/ros/humble/share/std_msgs/cmake)
+[0.446s] -- Found rosidl_generator_c: 3.1.4 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.449s] -- Found rosidl_adapter: 3.1.4 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.455s] -- Found rosidl_generator_cpp: 3.1.4 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.464s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.477s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.511s] -- Found ament_lint_auto: 0.12.6 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.563s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.563s] -- Configured cppcheck include dirs: 
+[0.563s] -- Configured cppcheck exclude dirs and/or files: 
+[0.565s] -- Added test 'lint_cmake' to check CMake code style
+[0.569s] -- Added test 'uncrustify' to check C / C++ code style
+[0.569s] -- Configured uncrustify additional arguments: 
+[0.569s] -- Added test 'xmllint' to check XML markup files
+[0.570s] -- Configuring done
+[0.572s] -- Generating done
+[0.573s] -- Build files have been written to: /root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface
+[0.576s] Invoked command in '/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface' returned '0': CMAKE_PREFIX_PATH=/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject:/opt/ros/humble /usr/bin/cmake /root/2ROS2workspace/freshmanproject_interface -DCMAKE_INSTALL_PREFIX=/root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface
+[0.577s] Invoking command in '/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface': CMAKE_PREFIX_PATH=/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject:/opt/ros/humble /usr/bin/cmake --build /root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface -- -j20 -l20
+[0.599s] Invoked command in '/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface' returned '0': CMAKE_PREFIX_PATH=/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject:/opt/ros/humble /usr/bin/cmake --build /root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface -- -j20 -l20
+[0.617s] Invoking command in '/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface': CMAKE_PREFIX_PATH=/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject:/opt/ros/humble /usr/bin/cmake --install /root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface
+[0.620s] -- Install configuration: ""
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/ament_index/resource_index/package_run_dependencies/freshmanproject_interface
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/ament_index/resource_index/parent_prefix_path/freshmanproject_interface
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/environment/ament_prefix_path.sh
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/environment/ament_prefix_path.dsv
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/environment/path.sh
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/environment/path.dsv
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/local_setup.bash
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/local_setup.sh
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/local_setup.zsh
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/local_setup.dsv
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/package.dsv
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/ament_index/resource_index/packages/freshmanproject_interface
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/cmake/freshmanproject_interfaceConfig.cmake
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/cmake/freshmanproject_interfaceConfig-version.cmake
+[0.621s] -- Installing: /root/2ROS2workspace/freshmanproject_interface/install/freshmanproject_interface/share/freshmanproject_interface/package.xml
+[0.623s] Invoked command in '/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface' returned '0': CMAKE_PREFIX_PATH=/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject:/opt/ros/humble /usr/bin/cmake --install /root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface

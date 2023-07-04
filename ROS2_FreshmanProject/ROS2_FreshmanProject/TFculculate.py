@@ -33,8 +33,9 @@ def DH_transform(alpha, a, d, theta):
 class TF_Publisher(Node):
     def __init__(self):
         super().__init__('tf_publisher')
-        self.tf_broadcaster = TransformBroadcaster(self)
+        #self.tf_broadcaster = TransformBroadcaster(self)
         self.timer = self.create_timer(0.1, self.timer_callback)
+        #self.timer2 = self.create_timer(3, self.timer2_callback)
         self.mpu_subscriber = self.create_subscription(
             Int64MultiArray, 'mpu_data', self.mpu_callback, 10)
         self.servo_subscriber = self.create_subscription(
@@ -44,7 +45,7 @@ class TF_Publisher(Node):
         self.mpu_q = np.array([0, 0, 0, 1], dtype=float)
         self.servoAngles = [0, 0, 0, 0]
 
-        r = Rotation.from_euler('y', -np.pi/3)
+        r = Rotation.from_euler('y', -np.pi/4)
         static_tf_publisher.sendTransform(
             self.quat_to_TF('base0', 'base1', 0, 0, 0, r.as_quat()))
         self.servoAngles = [0, 0, 0, 0]
@@ -62,8 +63,10 @@ class TF_Publisher(Node):
             self.DH_to_TF('S3A', 'S3B', 0, 0, 0, np.pi/2))
         self.tf_publisher.sendTransform(self.DH_to_TF(
             'S3B', 'S4', np.pi/2, 0.03, 0, (self.servoAngles[3])/180*np.pi))
+        #self.get_logger().info('Publishing Transform')
 
-        self.get_logger().info('Publishing Transform')
+    #def timer2_callback(self):
+        #self.get_logger().info('Publishing Transform')
 
     def mpu_callback(self, msg):
         # 当串口输出xy角度弧度时
@@ -154,22 +157,21 @@ def main(args=None):
 
 
 # 平移变换
-def translation(qx, qy, qz):
-    Dq = np.array([[1, 0, 0, qx],
-                   [0, 1, 0, qy],
-                   [0, 0, 1, qz],
-                   [0, 0, 0, 1]], dtype=float)
-    return Dq
+# def translation(qx, qy, qz):
+#     Dq = np.array([[1, 0, 0, qx],
+#                    [0, 1, 0, qy],
+#                    [0, 0, 1, qz],
+#                    [0, 0, 0, 1]], dtype=float)
+#     return Dq
 
 
-# 旋转变换npa
-def rotation(cls, angles):
-    r = Rotation.from_euler(cls, angles, degrees=False)
-    R = r.as_matrix()
-    R = np.vstack((R, np.array([0, 0, 0])))
-    R = np.hstack((R, np.array([[0], [0], [0], [1]])))
-    return R
-
+# # 旋转变换npa
+# def rotation(cls, angles):
+#     r = Rotation.from_euler(cls, angles, degrees=False)
+#     R = r.as_matrix()
+#     R = np.vstack((R, np.array([0, 0, 0])))
+#     R = np.hstack((R, np.array([[0], [0], [0], [1]])))
+#     return R
 # #一般变换(有问题，只能表示180度，所以使用scipy中Rotation代替)
 # def transform(Dm,Rm):
 #     if(Dm.shape !=(4,4) or Rm.shape!=(3,3)):

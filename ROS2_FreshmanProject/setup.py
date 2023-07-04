@@ -24,6 +24,7 @@ setup(
         'console_scripts': [
             'serial_node = ROS2_FreshmanProject.Serial:main',
             'tf2_node = ROS2_FreshmanProject.TFculculate:main',
+            'control_node = ROS2_FreshmanProject.Control:main'
             #'servo_node = ROS2_FreshmanProject.Servo:main',
             #'mpu_node = ROS2_FreshmanProject.Mpu:main',
         ],
