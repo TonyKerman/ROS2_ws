@@ -1,0 +1,29 @@
+[0.285s] Invoking command in '/root/2ROS2workspace/ROS2_FreshmanProject': PYTHONPATH=/root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/prefix_override:/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/ROS2_FreshmanProject build --build-base /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/build install --record /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/install.log --single-version-externally-managed
+[0.382s] running egg_info
+[0.382s] writing build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/PKG-INFO
+[0.382s] writing dependency_links to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/dependency_links.txt
+[0.382s] writing entry points to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/entry_points.txt
+[0.382s] writing requirements to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/requires.txt
+[0.382s] writing top-level names to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/top_level.txt
+[0.383s] reading manifest file 'build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/SOURCES.txt'
+[0.383s] writing manifest file 'build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/SOURCES.txt'
+[0.383s] running build
+[0.383s] running build_py
+[0.383s] copying ROS2_FreshmanProject/TFculculate.py -> /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/build/lib/ROS2_FreshmanProject
+[0.384s] running install
+[0.384s] running install_lib
+[0.384s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.384s]   warnings.warn(
+[0.384s] copying /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/build/lib/ROS2_FreshmanProject/TFculculate.py -> /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages/ROS2_FreshmanProject
+[0.385s] byte-compiling /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages/ROS2_FreshmanProject/TFculculate.py to TFculculate.cpython-310.pyc
+[0.385s] running install_data
+[0.386s] copying launch/demo.launch.py -> /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/share/ROS2_FreshmanProject/launch
+[0.386s] running install_egg_info
+[0.387s] removing '/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages/ROS2_FreshmanProject-0.0.0-py3.10.egg-info' (and everything under it)
+[0.387s] Copying build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages/ROS2_FreshmanProject-0.0.0-py3.10.egg-info
+[0.387s] running install_scripts
+[0.398s] Installing control_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+[0.398s] Installing serial_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+[0.398s] Installing tf2_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+[0.398s] writing list of installed files to '/root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/install.log'
+[0.412s] Invoked command in '/root/2ROS2workspace/ROS2_FreshmanProject' returned '0': PYTHONPATH=/root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/prefix_override:/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/ROS2_FreshmanProject build --build-base /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/build install --record /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/install.log --single-version-externally-managed

@@ -33,9 +33,9 @@ def DH_transform(alpha, a, d, theta):
 class TF_Publisher(Node):
     def __init__(self):
         super().__init__('tf_publisher')
-        #self.tf_broadcaster = TransformBroadcaster(self)
+        
         self.timer = self.create_timer(0.1, self.timer_callback)
-        #self.timer2 = self.create_timer(3, self.timer2_callback)
+        self.timer2 = self.create_timer(3, self.timer2_callback)
         self.mpu_subscriber = self.create_subscription(
             Int64MultiArray, 'mpu_data', self.mpu_callback, 10)
         self.servo_subscriber = self.create_subscription(
@@ -65,8 +65,8 @@ class TF_Publisher(Node):
             'S3B', 'S4', np.pi/2, 0.03, 0, (self.servoAngles[3])/180*np.pi))
         #self.get_logger().info('Publishing Transform')
 
-    #def timer2_callback(self):
-        #self.get_logger().info('Publishing Transform')
+    def timer2_callback(self):
+        self.get_logger().info('Publishing Transform')
 
     def mpu_callback(self, msg):
         # 当串口输出xy角度弧度时
@@ -150,7 +150,6 @@ pose = ['waiting', 'aiming']
 def main(args=None):
     rclpy.init(args=args)
     tf_publisher = TF_Publisher()
-
     rclpy.spin(tf_publisher)
     tf_publisher.destroy_node()
     rclpy.shutdown()

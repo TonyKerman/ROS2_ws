@@ -1,0 +1,25 @@
+[0.295s] Invoking command in '/root/2ROS2workspace/ROS2_FreshmanProject': PYTHONPATH=/root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/prefix_override:/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/ROS2_FreshmanProject build --build-base /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/build install --record /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/install.log --single-version-externally-managed
+[0.402s] running egg_info
+[0.403s] writing build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/PKG-INFO
+[0.403s] writing dependency_links to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/dependency_links.txt
+[0.403s] writing entry points to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/entry_points.txt
+[0.403s] writing requirements to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/requires.txt
+[0.403s] writing top-level names to build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/top_level.txt
+[0.404s] reading manifest file 'build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/SOURCES.txt'
+[0.404s] writing manifest file 'build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info/SOURCES.txt'
+[0.404s] running build
+[0.404s] running build_py
+[0.404s] running install
+[0.405s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.405s]   warnings.warn(
+[0.405s] running install_lib
+[0.405s] running install_data
+[0.406s] running install_egg_info
+[0.407s] removing '/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages/ROS2_FreshmanProject-0.0.0-py3.10.egg-info' (and everything under it)
+[0.407s] Copying build/ROS2_FreshmanProject/ROS2_FreshmanProject.egg-info to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages/ROS2_FreshmanProject-0.0.0-py3.10.egg-info
+[0.407s] running install_scripts
+[0.419s] Installing control_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+[0.419s] Installing serial_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+[0.419s] Installing tf2_node script to /root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/ROS2_FreshmanProject
+[0.419s] writing list of installed files to '/root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/install.log'
+[0.433s] Invoked command in '/root/2ROS2workspace/ROS2_FreshmanProject' returned '0': PYTHONPATH=/root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/prefix_override:/root/2ROS2workspace/ROS2_FreshmanProject/install/ROS2_FreshmanProject/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/ROS2_FreshmanProject build --build-base /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/build install --record /root/2ROS2workspace/ROS2_FreshmanProject/build/ROS2_FreshmanProject/install.log --single-version-externally-managed
