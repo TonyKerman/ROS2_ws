@@ -1,13 +1,13 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String,Byte
-from std_msgs.msg import Int64MultiArray, Float64MultiArray
+from std_msgs.msg import Int64MultiArray, Float64MultiArray,Int16MultiArray
 import serial
 import serial.tools.list_ports
 import queue
 import threading
 from time import sleep
-from .Control import servos_bis
+from .ModelData import servos_bis
 from struct import pack
 
 
@@ -46,7 +46,7 @@ class SerialNode(Node):
                     try:
                         self.ports = list(serial.tools.list_ports.comports())
                         # change this to your serial port and baud rate
-                        serial_port = serial.Serial(self.ports[0][0], 115200,timeout=0.01)
+                        serial_port = serial.Serial(self.ports[0][0], 115200,timeout=0.05)
                     except IndexError:
                         self.get_logger().info('No serial port found')
                         sleep(0.3)
@@ -76,6 +76,7 @@ class SerialNode(Node):
                 self.servoData_queue.put(self.mDecode_ServoMsg(data))
             return 0
         else:
+            self.get_logger().info("%s" % byte.decode(encoding='utf-8'))
             return -1
 
     def write_serial(self):
@@ -98,7 +99,7 @@ class SerialNode(Node):
         msg+=msgtype
         msg+=msglen
         msg+=buf
-        print(msg)
+        #print(msg)
         return msg
 
     def mDecode_MpuMsg(self, rawData):
@@ -123,7 +124,7 @@ class SerialNode(Node):
         def to_angle(pos, bis) -> float:
             return (pos - bis)*0.24
         angles = [to_angle(val[i], servos_bis[i]) for i in range(n)]
-        print(angles[0], angles[1], angles[2])
+        #print(angles[0], angles[1], angles[2])
         return angles
 
     def publish_mpuData(self):
@@ -149,7 +150,7 @@ class SerialNode(Node):
             pass
 
     def serial_callback(self, msg):
-        self.get_logger().info(msg)
+        #self.get_logger().info(msg.data)
         self.serMsg_queue.put(self.sendmsg(msg.data))
         
 # def publish_data(self):

@@ -11,7 +11,7 @@ import numpy as np
 import scipy
 from scipy.spatial.transform import Rotation
 
-arm_length = [0.17, 0.14, 0, 0]
+from .ModelData import arm_length
 
 # DH变换
 
