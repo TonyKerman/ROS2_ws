@@ -1,9 +1,0 @@
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/uninstall.dir
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/freshmanproject_interface_uninstall.dir
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/test.dir
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/edit_cache.dir
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/rebuild_cache.dir
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/list_install_components.dir
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/install.dir
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/install/local.dir
-/root/2ROS2workspace/freshmanproject_interface/build/freshmanproject_interface/CMakeFiles/install/strip.dir

@@ -1,5 +1,0 @@
-[console_scripts]
-control_node = ROS2_FreshmanProject.Control:main
-serial_node = ROS2_FreshmanProject.Serial:main
-tf2_node = ROS2_FreshmanProject.TFculculate:main
-

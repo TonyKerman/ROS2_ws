@@ -1,5 +1,6 @@
 #
-FROM ros:humble-perceptions.list
+FROM osrf/ros:humble-desktop-full
+RUN rm /etc/apt/sources.list
 ADD sources.list /etc/apt/
 RUN apt clean && apt update &&apt upgrade -y && apt-get install -y python3-pip openssh-server gdb gdbserver
     #安装rosdepc<https://zhuanlan.zhihu.com/p/398754989>
