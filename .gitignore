@@ -1,6 +1,5 @@
-ROS2_FreshmanProject
-freshmanproject_interface
 **/build
 **/install
 **/log
 **/*.log
+**/rosbag2*
