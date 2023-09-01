@@ -29,7 +29,7 @@ class Robot():
     def move_step(self):
         """移动一小步"""
         direct = self.move_distance_ / math.fabs(self.move_distance_)
-        step = direct * math.fabs(self.target_pose_ - self.current_pose_) * 0.1
+        step = direct * math.fabs(self.target_pose_ - self.current_pose_) * 0.3
         self.current_pose_ += step  # 移动一步
         print(f"移动了：{step}当前位置：{self.current_pose_}")
         return self.current_pose_

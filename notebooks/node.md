@@ -8,11 +8,13 @@
 ## 2. 创建节点
 
         ros2 pkg create  minalnode --build-type ament_cmake
+
 一般来说，要添加依赖
 
 对于cpp节点
 
         ros2 pkg create minalnode --build-type ament_cmake --dependencies rclcpp
+        
 对于py节点 rclcpp改为rclpy
 
 ## 3. 创建编写源文件

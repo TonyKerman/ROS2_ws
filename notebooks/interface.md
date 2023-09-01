@@ -1,4 +1,5 @@
 # interface 接口
+
 接口是ros2定义的一种规范
 
 ## ros2常见接口cli命令
@@ -25,13 +26,14 @@
 
 动作接口格式：xxx.action
 
-    int32 order
+    int32 xxx #命令
     ---
-    int32[] sequence
+    int32[] xxx #Result:结果
     ---
-    int32[] partial_sequence
+    int32[] xxx #Feedback:反馈
 
 ## 接口数据类型
+
 根据引用方式不同可以分为基础类型和包装类型两类。
 
 基础类型有（同时后面加上[]可形成数组）
@@ -55,10 +57,15 @@
     sensor_msgs/Image
 
 ## 自定义接口
+
 ### 创建功能包
 
-    ros2 pkg create example_ros2_interfaces --build-type ament_cmake --dependencies rosidl_default_generators geometry_msgs
-    Copy to clipboardErrorCopied
+    ros2 pkg create {xxx_ros2_interfaces} --build-type ament_cmake --dependencies rosidl_default_generators --destination-directory src
+    cd  src/{xxx_ros2_interfaces}
+    mkdir msg action srv
+
+(删除{})
+
 注意功能包类型必须为：ament_cmake
 
 依赖rosidl_default_generators必须添加，geometry_msgs视内容情况添加（我们这里有geometry_msgs/Pose pose所以要添加）。
@@ -74,17 +81,17 @@
     └── srv
         └── MoveRobot.srv
 
-
 ### 接着修改CMakeLists.txt
 
     find_package(rosidl_default_generators REQUIRED)
     find_package(geometry_msgs REQUIRED)
     #添加下面的内容
     rosidl_generate_interfaces(${PROJECT_NAME}
-    "msg/RobotPose.msg"
-    "msg/RobotStatus.msg"
-    "srv/MoveRobot.srv"
-    DEPENDENCIES geometry_msgs
+    #选择添加
+    "msg/xxx.msg"
+    "action/xxx.action"
+    "srv/xxx.srv"
+    # 当使用其他包中的数据类型时 DEPENDENCIES geometry_msgs
     )
 
 ### 接着修改package.xml

@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'example_action_rclpy'
+package_name = 'my_nodes'
 
 setup(
     name=package_name,
@@ -20,8 +20,6 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'action_control_02 = example_action_rclpy.action_control_02:main',
-            'action_robot_02 = example_action_rclpy.action_robot_02:main'
         ],
     },
 )
