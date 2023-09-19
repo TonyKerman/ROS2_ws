@@ -118,5 +118,19 @@ joint_states有一个头和四个数组需要赋值（可通过ros2 interface指
     float64[] position
     float64[] velocity
     float64[] effort
-...
+
+其中 stdmsg/msg/Header
+
+    # Standard metadata for higher-level stamped data types.
+    # This is generally used to communicate timestamped data
+    # in a particular coordinate frame.
+
+    # Two-integer timestamp that is expressed as seconds and nanoseconds.
+    builtin_interfaces/Time stamp
+            int32 sec
+            uint32 nanosec
+
+    # Transform frame with which this data is associated.
+    string frame_id
+
 ## 运行

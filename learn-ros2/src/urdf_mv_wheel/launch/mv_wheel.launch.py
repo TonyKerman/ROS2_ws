@@ -7,7 +7,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     #注意要改
-    package_name = 'urdf_state_publisher'
+    package_name = 'urdf_mv_wheel'
     urdf_name = "robot.urdf"
 
     ld = LaunchDescription()
@@ -18,7 +18,7 @@ def generate_launch_description():
     #joint_state_publisher_gui 负责发布机器人关节数据信息，通过joint_states话题发布
     #如果要自己控制机器人，需要发布关节数据，这个节点要改为自己的节点
     joint_state_publisher_node = Node(
-        package='urdf_state_publisher',
+        package=package_name,
         executable='state_publisher',
         #name='state_publisher',
         arguments=[urdf_model_path]

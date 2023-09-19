@@ -1,7 +1,6 @@
 from setuptools import find_packages, setup
-from glob import glob
-import os
-package_name = 'urdf_state_publisher'
+
+package_name = 'mavlink_read_from_serial'
 
 setup(
     name=package_name,
@@ -11,8 +10,6 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-        (os.path.join('share', package_name, 'urdf'), glob('urdf/**')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -23,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "state_publisher= urdf_state_publisher.state_publisher:main"
+            'read_from_serial = mavlink_read_from_serial.read_from_serial:main'
         ],
     },
 )

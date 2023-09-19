@@ -8,7 +8,13 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+rosidl_generate_interfaces(${PROJECT_NAME}
+#选择添加
+"msg/Myinput.msg"
+"msg/Myoutput.msg"
 
+# 当使用其他包中的数据类型时 DEPENDENCIES geometry_msgs
+)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

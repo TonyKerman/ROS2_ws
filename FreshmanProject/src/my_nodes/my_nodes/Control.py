@@ -1,96 +1,138 @@
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16MultiArray
-from tf2_ros import TransformException
-from tf2_ros.buffer import Buffer
-from tf2_ros.transform_listener import TransformListener
+# 1.导入消息类型JointState
+from sensor_msgs.msg import JointState
+from my_interfaces.msg import Myinput, Myoutput
+import threading,time,serial,struct
 import numpy as np
-from struct import pack,calcsize
-from time import sleep
-from scipy.spatial.transform import Rotation
 
-from .ModelData import angleToPos,arm_length
-#http://wed.xjx100.cn/news/7599.html?action=onClick
+servos_bis = [775, 1155, 400, 700]
 
+class ControlArmNode(Node):
+    def __init__(self,name):
+        super().__init__(name)
+        self.joint_states_publisher_ = self.create_publisher(JointState,"joint_states", 10)
 
-class Controller(Node):
-    def __init__(self):
-        super().__init__("controller")
-        self.timer = self.create_timer(0.5, self.timer_callback)
-        self.tf_buffer = Buffer()
-        self.tf_listener = TransformListener(self.tf_buffer,self)
-        self.serialMsg_publisher = self.create_publisher(Int16MultiArray,'serial_Msg',3)
-        #self.declare_parameter("target_angles",[0,0,0,0])
-        self.target_angles = np.zeros(3,dtype=float)
-        self.i = 0
-        self.a =0
-        self.s =0
+        self.output_pub = self.create_publisher(Myoutput,"output_msg",10)
         
 
-    def timer_callback(self):
-        try:
-            pos =list(angleToPos(self.target_angles))
-            msg =Int16MultiArray()
-            msg.data = [round(a) for a in pos]
-
-            self.serialMsg_publisher.publish(msg)
-            self.get_logger().info('target: "%s"' % str(msg.data))
-        except TransformException as ex:
-            print(f'can not find{ex}')
-        #self.target_angles = self.get_parameter("target_angles").value
-        self.test1()
-        #self.vertical_stabilize()
-
-    def vertical_stabilize(self):
-        now = rclpy.time.Time()
-        T = self.tf_buffer.lookup_transform('world','base0',now)
-        quats = [T.transform.rotation.w,T.transform.rotation.x,
-                  T.transform.rotation.y,T.transform.rotation.z]
-        R = Rotation.from_quat(quats)
-        axangles = R.as_euler('zyx',degrees=False)
-        theta1 = np.arccos(1.5*arm_length[0]/(arm_length[0]+arm_length[1]))/np.pi*180-axangles[0]/np.pi*180
-        theta2 = 2*theta1
-        theta3 =90-theta1
-        theta4 =-axangles[1]/np.pi*180
+        self.joint_states = JointState()
+        self.inputMsg = Myinput()
+        self.outputMsg = Myoutput()
+        self.lock = threading.Lock()
         
-        self.target_angles=np.array([theta1,theta2,theta3,theta4],dtype=float)
-        #self.get_logger().info('target_angles: "%s"' % str(self.target_angles))
+        self.pub_rate = self.create_rate(10)
+        self.thread_pub = threading.Thread(target=self._thread_pub)
+        self.thread_pub.setDaemon(True)
+        self.thread_pub.start()
 
+        is_open =False
+        while not is_open:
+            try:
+                
+                serial_name =  'ttyACM0'
+                self.serial_port = serial.Serial(serial_name, 115200,timeout=0.5)
+                self.get_logger().info('serial success!')
+                is_open =True
+            except:
+                self.get_logger().fatal(f'No device found in {serial_name}\n\n\n')
+                time.sleep(1)
+                break
+        
+        if is_open:
+            while True:
+                self._thread_serial()
 
+    
+    def _thread_serial(self):
+        b_end = b'\xef'
+        raw = self.serial_port.read_until(b_end,41)
+        raw =struct.unpack('hhhhddddc',raw)
+        with self.lock:
+            self.inputMsg.servoPos=raw[0:4]
+            self.inputMsg.quants=raw[4:8]
+       
 
-    def test1(self):
-        if self.s == 0:
-            self.a=-15
-            self.s = 1
-        else:
-            self.a=15
-            self.s = 0
-        self.target_angles = np.array([0,45,0,self.a])
-        #self.get_logger().info("change pose%s" %  
-        #                           str(self.target_angles))
-    def test2(self):
-        L = arm_length
-        x = np.linspace(L[0]-L[1],L[0]+L[1],10)
-        #单位 度
-        theta1 = np.arccos(x/(L[0]+L[1]))/np.pi*180
-        theta2 = 2*theta1
-        theta3 =90-theta1
-        self.target_angles = np.ararry([theta1[self.i],theta2[self.i],theta3[self.i]])
-        if self.i<5:
-            self.get_logger().info("change pose%s" %  
-                                    str(self.target_angles))
-            self.i+=1
-        else:
-            self.i=5
+        
+    def _thread_pub(self):
+        last_update_time = time.time()
 
+        self.joint_states.name = ['joint1','joint2','joint3','joint4','joint5','joint6']
+        self.joint_states.position = [0.0,0.0,0.0,0.0,0.0,0.0]
+        self.joint_states.velocity = []
+        #self.joint_states.name = ['joint1']
+        #self.joint_states.position = [10.0]
+        #self.joint_states.velocity = [0.0]
+        self.joint_states.effort = []
+        self.joint_states.header.frame_id = ""
+        while rclpy.ok():
+            # delta_time =  time.time()-last_update_time
+            # last_update_time = time.time()
+            self.joint_states.header.stamp = self.get_clock().now().to_msg()
+            with self.lock:
+                
+                self.joint_states.position[0]+=1 
+                #self.joint_states.velocity = [0.0]
+                #self.joint_states.effort = []
+                #self.joint_states.position=[(pos-servos_bis)*0.24*np.pi/180 for pos in self.inputMsg.servopos]
+            self.joint_states_publisher_.publish(self.joint_states)
+            self.get_logger().info('send')
+            self.pub_rate.sleep()
+            
 
+        
+
+# class RotateWheelNode(Node):
+#     def __init__(self,name):
+#         super().__init__(name)
+#         self.get_logger().info(f"node {name} init..")
+#         # 创建并初始化发布者成员属性pub_joint_states_
+#         self.joint_states_publisher_ = self.create_publisher(JointState,"joint_states", 10) 
+#         # 初始化数据
+#         self._init_joint_states()
+#         self.pub_rate = self.create_rate(30)
+#         self.thread_ = threading.Thread(target=self._thread_pub)
+#         self.thread_.start()
+
+    
+#     def _init_joint_states(self):
+#         # 初始左右轮子的速度
+#         self.joint_speeds = [0.0,0.0]
+#         self.joint_states = JointState()
+#         self.joint_states.header.stamp = self.get_clock().now().to_msg()
+#         self.joint_states.header.frame_id = ""
+#         # 关节名称
+#         self.joint_states.name = ['left_wheel_joint','right_wheel_joint']
+#         # 关节的位置
+#         self.joint_states.position = [0.0,0.0]
+#         # 关节速度
+#         self.joint_states.velocity = self.joint_speeds
+#         # 力 
+#         self.joint_states.effort = []
+
+#     def update_speed(self,speeds):
+#         self.joint_speeds = speeds
+
+#     def _thread_pub(self):
+#         last_update_time = time.time()
+#         while rclpy.ok():
+#             delta_time =  time.time()-last_update_time
+#             last_update_time = time.time()
+#             # 更新位置
+#             self.joint_states.position[0]  += delta_time*self.joint_states.velocity[0]
+#             self.joint_states.position[1]  += delta_time*self.joint_states.velocity[1]
+#             # 更新速度
+#             self.joint_states.velocity = self.joint_speeds
+#             # 更新 header
+#             self.joint_states.header.stamp = self.get_clock().now().to_msg()
+#             # 发布关节数据
+#             self.joint_states_publisher_.publish(self.joint_states)
+#             self.pub_rate.sleep()
 
 def main(args=None):
-    rclpy.init(args=args)
-    controller = Controller()
-    rclpy.spin(controller)
-    controller.destroy_node()
-    rclpy.shutdown()
-
-
-
+    rclpy.init(args=args) # 初始化rclpy
+    node = ControlArmNode("arm_control")  # 新建一个节点
+    
+    rclpy.spin(node) # 保持节点运行，检测是否收到退出指令（Ctrl+C）
+    rclpy.shutdown() # 关闭rclpy

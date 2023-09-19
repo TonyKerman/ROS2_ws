@@ -1,17 +1,15 @@
-from setuptools import setup
-from glob import glob
-import os
-package_name = 'ROS2_FreshmanProject'
+from setuptools import find_packages, setup
+
+package_name = 'mavlink_ros2'
 
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -22,11 +20,6 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'serial_node = ROS2_FreshmanProject.Serial:main',
-            'tf2_node = ROS2_FreshmanProject.TFculculate:main',
-            'control_node = ROS2_FreshmanProject.Control:main'
-            #'servo_node = ROS2_FreshmanProject.Servo:main',
-            #'mpu_node = ROS2_FreshmanProject.Mpu:main',
         ],
     },
 )
