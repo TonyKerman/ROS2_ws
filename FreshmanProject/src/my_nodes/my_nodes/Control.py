@@ -3,63 +3,100 @@ import rclpy
 from rclpy.node import Node
 # 1.导入消息类型JointState
 from sensor_msgs.msg import JointState
-from my_interfaces.msg import Myinput, Myoutput
+from geometry_msgs.msg import TransformStamped
+from tf2_ros import StaticTransformBroadcaster
+from tf2_ros import TransformBroadcaster
 import threading,time,serial,struct
 import numpy as np
+from queue import Queue
+from pymavlink import mavutil
+import serial.tools.list_ports
+from typing import Iterable
+from scipy.spatial.transform import Rotation
 
-servos_bis = [775, 1155, 400, 700]
+class Servogroup():
+    def __init__(self,servo_num:int=4) -> None:
+
+        offset = np.array((775, 1155, 400, 700),dtype=int)
+        reverse = np.array((-1,-1,1,1),dtype=int)
+
+        self.mutex = threading.Lock()
+        self.servo_num =servo_num
+        self.offset = offset[:self.servo_num]
+        self.reverse = reverse[:self.servo_num]
+        self.position = np.zeros(self.servo_num,dtype=int) 
+    
+    def updatePos(self,pos:Iterable,angle = False) -> None:
+        pos = np.array(pos)
+        if pos.shape != (self.servo_num,):
+            raise IndexError()
+        with self.mutex:
+            if angle:
+                self.position =np.array(pos/0.24+self.offset,dtype=int)
+            else:
+                self.position = pos
+    
+    def getPos(self):
+        with self.mutex:
+            return self.position
+    def getPos_r(self):
+        with self.mutex:
+            return (self.position-self.offset)*0.24*np.pi/180
+            
+
+
 
 class ControlArmNode(Node):
     def __init__(self,name):
         super().__init__(name)
         self.joint_states_publisher_ = self.create_publisher(JointState,"joint_states", 10)
-
-        self.output_pub = self.create_publisher(Myoutput,"output_msg",10)
-        
-
         self.joint_states = JointState()
-        self.inputMsg = Myinput()
-        self.outputMsg = Myoutput()
-        self.lock = threading.Lock()
-        
-        self.pub_rate = self.create_rate(10)
-        self.thread_pub = threading.Thread(target=self._thread_pub)
-        self.thread_pub.setDaemon(True)
-        self.thread_pub.start()
+        self.servos = Servogroup(4)
 
+        self.tf_publisher = TransformBroadcaster(self)
+        static_tf_publisher = StaticTransformBroadcaster(self)
+        r = Rotation.from_euler('zyx',(np.pi/4,np.pi/2,0))
+        static_tf_publisher.sendTransform(
+            self.quat_to_TF('world', 'base_link', 0, 0, 0, r.as_quat()))
+        self.mpu_quan_q = Queue(1)
         is_open =False
         while not is_open:
             try:
-                
-                serial_name =  'ttyACM0'
-                self.serial_port = serial.Serial(serial_name, 115200,timeout=0.5)
-                self.get_logger().info('serial success!')
+                ports = list(serial.tools.list_ports.comports())
+                self.mav_connection = mavutil.mavlink_connection(ports[0][0],baud=115200,dialect='common') 
+                self.get_logger().info(f'serial success in {ports[0][0]}!')
                 is_open =True
-            except:
-                self.get_logger().fatal(f'No device found in {serial_name}\n\n\n')
+            except IndexError:
+                self.get_logger().fatal(f'No device found !\n\n\n')
                 time.sleep(1)
-                break
         
-        if is_open:
-            while True:
-                self._thread_serial()
+        self.pub_rate = self.create_rate(10)
+        self.thread_pub = threading.Thread(target=self._thread_pub)
+        self.thread_serial = threading.Thread(target=self._thread_serial)
+        self.thread_pub.setDaemon(True)
+        self.thread_serial.setDaemon(True)
+        self.thread_serial.start()
+        self.thread_pub.start()
 
-    
     def _thread_serial(self):
-        b_end = b'\xef'
-        raw = self.serial_port.read_until(b_end,41)
-        raw =struct.unpack('hhhhddddc',raw)
-        with self.lock:
-            self.inputMsg.servoPos=raw[0:4]
-            self.inputMsg.quants=raw[4:8]
-       
+        
+        while True:
+            msg = self.mav_connection.recv_match(blocking = True)
+            msg_type = msg.get_type()
+            if msg_type == 'BAD_DATA':
+                continue
+            elif msg_type == 'ATTITUDE_QUATERNION':
+                self.mpu_quan_q.put((msg.q1,msg.q2,msg.q3,msg.q4))
+            elif msg_type == 'COMMAND_LONG':
+                self.servos.updatePos((msg.param1,msg.param2,msg.param3,msg.param4))
+            #self.get_logger().info(msg.get_type())
 
         
     def _thread_pub(self):
         last_update_time = time.time()
-
+        self.get_logger().info('publisher start')
         self.joint_states.name = ['joint1','joint2','joint3','joint4','joint5','joint6']
-        self.joint_states.position = [0.0,0.0,0.0,0.0,0.0,0.0]
+        self.joint_states.position = np.zeros(6,dtype=float).tolist()
         self.joint_states.velocity = []
         #self.joint_states.name = ['joint1']
         #self.joint_states.position = [10.0]
@@ -70,16 +107,34 @@ class ControlArmNode(Node):
             # delta_time =  time.time()-last_update_time
             # last_update_time = time.time()
             self.joint_states.header.stamp = self.get_clock().now().to_msg()
-            with self.lock:
-                
-                self.joint_states.position[0]+=1 
+            pos = self.servos.getPos_r()
+
+            self.get_logger().info(f'{pos}')
+            for i in range(len(pos)):
+                self.joint_states.position[i] = pos[i]
                 #self.joint_states.velocity = [0.0]
                 #self.joint_states.effort = []
                 #self.joint_states.position=[(pos-servos_bis)*0.24*np.pi/180 for pos in self.inputMsg.servopos]
             self.joint_states_publisher_.publish(self.joint_states)
-            self.get_logger().info('send')
+            self.get_logger().info(f'send{str(self.joint_states.position)}')
             self.pub_rate.sleep()
             
+    def quat_to_TF(self, A: str, B: str, tx: float, ty: float, tz: float, q: list):
+        if len(q) != 4:
+            raise IndexError('Quaternion must be a list of 4 elements')
+
+        T = TransformStamped()
+        T.header.stamp = self.get_clock().now().to_msg()
+        T.header.frame_id = A
+        T.child_frame_id = B
+        T.transform.translation.x = float(tx)
+        T.transform.translation.y = float(ty)
+        T.transform.translation.z = float(tz)
+        T.transform.rotation.x = q[0]
+        T.transform.rotation.y = q[1]
+        T.transform.rotation.z = q[2]
+        T.transform.rotation.w = q[3]
+        return T
 
         
 
@@ -132,7 +187,7 @@ class ControlArmNode(Node):
 
 def main(args=None):
     rclpy.init(args=args) # 初始化rclpy
-    node = ControlArmNode("arm_control")  # 新建一个节点
+    node = ControlArmNode("control_node")  # 新建一个节点
     
     rclpy.spin(node) # 保持节点运行，检测是否收到退出指令（Ctrl+C）
     rclpy.shutdown() # 关闭rclpy

@@ -1,28 +1,33 @@
-import py_mavlink_lib as mav
 import rclpy
-from rclpy import Node
-from serial import Serial
+from pymavlink import mavutil
+from rclpy.node import Node
+import serial.tools.list_ports
 
-class Mavlink_serial(Node):
+class MavlinkSerialNode(Node):
     def __init__(self,name):
         super().__init__(name)
-        serial_name = 'ttyACM0'
-        self.serial = Serial(serial_name,115200,timeout=1000)
-        self.rate = self.create_rate(100)
-        self.M = mav.MAVLink()
+
+        self.ports = list(serial.tools.list_ports.comports())
+        self.mav_connection = mavutil.mavlink_connection(self.ports[0][0],baud=115200,dialect='common') 
+        self.get_logger().info(f'conneted to {self.ports[0][0]}')
+        #self.rate = self.create_rate(100)
+        
         while True:
-            self.read()
+            msg = self.mav_connection.recv_match(blocking = True)
+            self.get_logger().info(msg.get_type())
+            
             #self.rate.sleep()
+
     
     def read(self):
-        b = self.serial.read()
-        msg = self.M.parse_buffer(b)
-        if msg != None:
-            self.get_logger().info(str(msg))
+        pass
+        
+        #if msg != None:
+        #    self.get_logger().info(str(msg))
 
 def main(args = None):
     rclpy.init(args = args)
-    node = Mavlink_serial('Mavlink serial node')
+    node = MavlinkSerialNode('MavlinkSerialNode')
     rclpy.spin(node)
     rclpy.shutdown() # 关闭rclpy
 

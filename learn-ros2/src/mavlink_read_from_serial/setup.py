@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'read_from_serial = mavlink_read_from_serial.read_from_serial:main'
+            'read_from_serial = mavlink_read_from_serial.mavlink_read_from_serial:main'
         ],
     },
 )
