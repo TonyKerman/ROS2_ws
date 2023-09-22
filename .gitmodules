@@ -1,3 +1,6 @@
 [submodule "FreshmanProject-ros2"]
 	path = FreshmanProject-ros2
 	url = https://github.com/TonyKerman/FreshmanProject-ros2
+[submodule "learn-ros2"]
+	path = learn-ros2
+	url = https://github.com/TonyKerman/learn-ros2
