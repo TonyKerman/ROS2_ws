@@ -11,7 +11,7 @@ import numpy as np
 from queue import Queue
 from pymavlink import mavutil
 import serial.tools.list_ports
-from typing import Iterable
+from typing import Iterable,Any
 from scipy.spatial.transform import Rotation
 
 class Servogroup():
@@ -44,31 +44,45 @@ class Servogroup():
             return (self.position-self.offset)*0.24*np.pi/180
             
 
+class Mpu():
+    
+    def __init__(self,dt:int=0,orientation:np.ndarray=np.eye(3)) -> None:
+        
+        self.R0 = Rotation.from_matrix(orientation)
+        self.R = Rotation.from_matrix(np.eye(3))
+        self.mutex = threading.Lock()
+        self.row = 0
+        self.pitch = 0
+        self.yaw = 0
+    def get_quat(self) -> np.ndarray:
+        with self.mutex:
+            return self.R.as_quat()
+    
+    def update_from_quat(self,quat:Iterable) -> None:
+        quaternion = np.array(quat,dtype=np.float64)
+        with self.mutex:
+            self.R = self.R0 * Rotation.from_quat(quaternion)
+            #self.get_logger().info(f'1___{str(self.get_quat())})')
+        
+            
 
 
 class ControlArmNode(Node):
     def __init__(self,name):
         super().__init__(name)
+
         self.joint_states_publisher_ = self.create_publisher(JointState,"joint_states", 10)
+        self.tf_publisher = TransformBroadcaster(self)
+        self._static_tf_pub('mpu_base','base_link',Rotation.from_euler('zyx',(np.pi/4,np.pi/2,0)))
         self.joint_states = JointState()
         self.servos = Servogroup(4)
+        self.mpu = Mpu()
+        
 
-        self.tf_publisher = TransformBroadcaster(self)
-        static_tf_publisher = StaticTransformBroadcaster(self)
-        r = Rotation.from_euler('zyx',(np.pi/4,np.pi/2,0))
-        static_tf_publisher.sendTransform(
-            self.quat_to_TF('world', 'base_link', 0, 0, 0, r.as_quat()))
-        self.mpu_quan_q = Queue(1)
-        is_open =False
-        while not is_open:
-            try:
-                ports = list(serial.tools.list_ports.comports())
-                self.mav_connection = mavutil.mavlink_connection(ports[0][0],baud=115200,dialect='common') 
-                self.get_logger().info(f'serial success in {ports[0][0]}!')
-                is_open =True
-            except IndexError:
-                self.get_logger().fatal(f'No device found !\n\n\n')
-                time.sleep(1)
+        self._joint_state_msg_init()         
+        if self._serial_init():
+            exit()
+
         
         self.pub_rate = self.create_rate(10)
         self.thread_pub = threading.Thread(target=self._thread_pub)
@@ -86,37 +100,31 @@ class ControlArmNode(Node):
             if msg_type == 'BAD_DATA':
                 continue
             elif msg_type == 'ATTITUDE_QUATERNION':
-                self.mpu_quan_q.put((msg.q1,msg.q2,msg.q3,msg.q4))
+                
+                #self.get_logger().info(f'{quat},{type(quat)}')
+                self.mpu.update_from_quat((msg.q1,msg.q2,msg.q3,msg.q4))
             elif msg_type == 'COMMAND_LONG':
                 self.servos.updatePos((msg.param1,msg.param2,msg.param3,msg.param4))
-            #self.get_logger().info(msg.get_type())
+            self.get_logger().info(f'got {msg.get_type()}')
 
         
     def _thread_pub(self):
-        last_update_time = time.time()
-        self.get_logger().info('publisher start')
-        self.joint_states.name = ['joint1','joint2','joint3','joint4','joint5','joint6']
-        self.joint_states.position = np.zeros(6,dtype=float).tolist()
-        self.joint_states.velocity = []
-        #self.joint_states.name = ['joint1']
-        #self.joint_states.position = [10.0]
-        #self.joint_states.velocity = [0.0]
-        self.joint_states.effort = []
-        self.joint_states.header.frame_id = ""
+        
         while rclpy.ok():
             # delta_time =  time.time()-last_update_time
             # last_update_time = time.time()
             self.joint_states.header.stamp = self.get_clock().now().to_msg()
             pos = self.servos.getPos_r()
-
-            self.get_logger().info(f'{pos}')
+            #self.get_logger().info(f'{pos}')
             for i in range(len(pos)):
                 self.joint_states.position[i] = pos[i]
-                #self.joint_states.velocity = [0.0]
-                #self.joint_states.effort = []
-                #self.joint_states.position=[(pos-servos_bis)*0.24*np.pi/180 for pos in self.inputMsg.servopos]
+            
+            #self.get_logger().info(f'2___{str(self.mpu.get_quat())})')
+            self.tf_publisher.sendTransform(self.quat_to_TF(
+                'world', 'mpu_base', 0, 0, 0, self.mpu.get_quat()))
+            
             self.joint_states_publisher_.publish(self.joint_states)
-            self.get_logger().info(f'send{str(self.joint_states.position)}')
+            #self.get_logger().info('send{str(self.joint_states.position)}')
             self.pub_rate.sleep()
             
     def quat_to_TF(self, A: str, B: str, tx: float, ty: float, tz: float, q: list):
@@ -135,9 +143,36 @@ class ControlArmNode(Node):
         T.transform.rotation.z = q[2]
         T.transform.rotation.w = q[3]
         return T
+    
+    def _joint_state_msg_init(self) -> None:
+        self.get_logger().info('publisher start')
+        self.joint_states.name = ['joint1','joint2','joint3','joint4','joint5','joint6']
+        self.joint_states.position = np.zeros(6,dtype=float).tolist()
+        self.joint_states.velocity = []
+        #self.joint_states.name = ['joint1']
+        #self.joint_states.position = [10.0]
+        #self.joint_states.velocity = [0.0]
+        self.joint_states.effort = []
+        self.joint_states.header.frame_id = ""
+    
+    def _static_tf_pub(self,A:str='world1',B:str='world2',R:Rotation=Rotation.from_matrix(np.eye(3))):
+        static_tf_publisher = StaticTransformBroadcaster(self)
+        static_tf_publisher.sendTransform(
+            self.quat_to_TF(A,B, 0, 0, 0, R.as_quat()))
 
-        
-
+    def _serial_init(self) -> bool:
+        open_cnt = 0
+        while open_cnt<30:
+            try:
+                ports = list(serial.tools.list_ports.comports())
+                self.mav_connection = mavutil.mavlink_connection(ports[0][0],baud=115200,dialect='common') 
+                self.get_logger().info(f'serial success in {ports[0][0]}!')
+                break
+            except IndexError:
+                self.get_logger().fatal(f'No device found !\n\n\n')
+                time.sleep(1)
+                open_cnt +=1
+        return bool(open_cnt)
 # class RotateWheelNode(Node):
 #     def __init__(self,name):
 #         super().__init__(name)
