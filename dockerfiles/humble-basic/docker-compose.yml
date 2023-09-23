@@ -14,9 +14,10 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     networks:
       - default
-    container_name: ROS2
+    container_name: ros2_basic
     hostname: "ROS2_project"
     user: root
+    privileged: true
     working_dir: /root/2ROS2workspace
     ports:
       - 3000:3000

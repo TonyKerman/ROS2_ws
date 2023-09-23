@@ -1,4 +1,4 @@
-FROM tony/ros2:humble
+FROM tony/ros2:humble-basic
 
 SHELL ["/bin/bash", "-c"]
 
