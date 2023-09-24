@@ -2,15 +2,13 @@ FROM osrf/ros:humble-desktop-full
 RUN rm /etc/apt/sources.list
 ADD sources.list /etc/apt/
 RUN apt clean && apt update &&apt upgrade -y && apt-get install -y \
-python3-pip openssh-server gdb gdbserver lsb-release wget gnupg xterm 
+python3-pip openssh-server gdb gdbserver xterm ros-humble-gazebo-pkgs
 
-    #安装rosdepc<https://zhuanlan.zhihu.com/p/398754989>
-#apt install ros-humble-cartographer ros-humble-gazebo-ros xterm vi
 # install gazebo fortress
-RUN  wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
-apt-get update \
-apt-get install ignition-fortress 
+# RUN  wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
+# echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
+# apt-get update \
+# apt-get install ignition-fortress 
 
 RUN pip install rosdepc pymavlink
 # pymavlink
