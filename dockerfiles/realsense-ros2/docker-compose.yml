@@ -14,8 +14,8 @@ services:
       # function along with"- DISPLAY=unix$DISPLAY" to enable Qt 
       - /tmp/.X11-unix:/tmp/.X11-unix
     network_mode: "host"
-    container_name: ROS2_realsense
-    hostname: "ROS2_realsense"
+    container_name: ros2_realsense
+    hostname: "ros2_realsense"
     user: root
     privileged: true
     working_dir: /root/2ROS2workspace
