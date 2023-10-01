@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  ros2_service:
+
+    restart: on-failure
+    #  使用当前目录的 Dockerfile 来构建 docker 镜像
+    build: .
+    # build from specific image
+    image : tony/ros2:humble-gui-full
+    volumes:
+      #改成你自己的ros2工作区
+      - /home/tony/2ROS2workspace:/root/2ROS2workspace
+      - /dev:/dev
+      # function along with"- DISPLAY=unix$DISPLAY" to enable Qt 
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    networks:
+      - default
+    container_name: ros2_basic
+    hostname: "ros2"
+    user: root
+    privileged: true
+    working_dir: /root/2ROS2workspace
+    #   同时通过 tailf 命令保持 container 不要退出的状态
+    command:
+      bash -c "tail -f /dev/null"
+    environment:
+      - DISPLAY=unix$DISPLAY  
+    ports:
+      - 4000:4000
+
+    
+
