@@ -4,3 +4,10 @@
 [submodule "learn-ros2"]
 	path = learn-ros2
 	url = https://github.com/TonyKerman/learn-ros2
+[submodule "robot_state_publisher"]
+	path = lib_source_codes/robot_state_publisher
+	url = https://github.com/ros/robot_state_publisher
+[submodule "joint_state_publisher"]
+	path = lib_source_codes/joint_state_publisher
+	url = https://github.com/ros/joint_state_publisher	
+
