@@ -1,0 +1,14 @@
+# Goal: 要移动的角度
+float64 delta
+float64 max_velocity
+---
+# Result: 最终的角度
+float64 theta 
+
+---
+# Feedback: 中间反馈的位置和状态
+# std_msgs/Header header
+float32 remaining
+float32 speed
+# uint32 STATUS_MOVEING = 3
+# uint32 STATUS_STOP = 4

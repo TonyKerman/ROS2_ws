@@ -1,0 +1,10 @@
+# 舵轮底盘移动动作
+# Goal: 要移动x,y的角度
+float64 dx
+float64 dy
+float64   omega
+#oofloat64 max_velocity
+---
+float64 time 
+---
+# Feedback: 中间反馈的位置和状态

@@ -28,7 +28,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'r2_arm_display_node = r2_arm_test_01.r2_arm_display_node:main'
+            'r2_arm_display_node = r2_arm_test_01.r2_arm_display_node:main',
+            'r2_arm_test_node = r2_arm_test_01.r2_arm_test_node:main'
         ],
     },
 )

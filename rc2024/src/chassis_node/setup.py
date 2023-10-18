@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+from glob import glob
+import os
 
 package_name = 'chassis_node'
 
@@ -10,6 +12,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+        (os.path.join('share', package_name, 'urdf'), glob('urdf/*.*'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -20,7 +24,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'chassis_node = chassis_node.action_robot_02:main'
+            'virtual_chassis_node = chassis_node.virtual_chassis_node:main',
+            'example_client = chassis_node.example_client:main'
         ],
     },
 )

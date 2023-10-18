@@ -2,14 +2,17 @@ from typing import Iterator, List
 from rclpy.context import Context
 from rclpy.node import Node
 import rclpy
+
 from rclpy.parameter import Parameter
 from rclpy.timer import Timer
 from sensor_msgs.msg import JointState
 from .motor import Motor
 from rcl_interfaces.msg import ParameterDescriptor
-
-
-
+import time
+from threading import Lock
+from rclpy.action import ActionServer
+from rclpy.action.server import ServerGoalHandle
+from rc2024_interfaces.action import MotorRotate
 # class Motor_node(Node):
 #     def __init__(self,name:str,reduction_ratio:float):
 #         super().__init__(name)
@@ -32,32 +35,71 @@ from rcl_interfaces.msg import ParameterDescriptor
     
 #     def set_speed(speed)
 #         pass
+class BlinkPlanner():
+    def __init__(self):
+        self.goal = 0
+        self.val = 0
+    def feedback(self,x):
+        self.val = x
+    def set_goal(self,goal):
+        self.goal = goal
+    def close_goal(self,err):
+        return abs(self.val-self.goal)<=err
+    def run(self):
+        return self.goal
+    
+
 
 class Motor_node(Node):
-    def __init__(self,name:str,reduction_ratio:float):
+    def __init__(self,name:str,joint_name:str,reduction_ratio:float):
         super().__init__(name)
-        #pid_parameter_descriptor = ParameterDescriptor()
-        #self.get_logger().info(f'{rclpy.Parameter.Type.DOUBLE_ARRAY.value}')
-        self.motor = Motor(name)
-        self.declare_parameter('time_rate',1)
-        joint_name = name+'_js'
-        self.js_pub = self.create_publisher(JointState,joint_name,5)
-        time_rate = self.get_parameter('time_rate').value
-        #self.get_logger().info(f'{time_rate}')
-        self.cnt = 0
-        self.create_timer(1/time_rate,self.timer_callback)
-        
 
+        self.state = JointState()
+        self.state.name =joint_name
+        self.js_feedback_sub = self.create_subscription(JointState,'joint_states',self.sub_callback)
+        self.joint_cmd =JointState()
+        self.joint_cmd.name= joint_name
+        self.joint_cmd_pub = self.create_publisher(JointState,'joint_cmd',1)
+        self.Mutex = Lock()
+        self.planner = BlinkPlanner
+        self.action_server_ = ActionServer(
+            self, MotortRotate, 'motor_rotate', self.execute_callback
+            # ,callback_group=MutuallyExclusiveCallbackGroup()
+        )
+
+    def execute_callback(self, goal_handle: ServerGoalHandle):
+        self.planner.set_goal(goal_handle.requsest.delta)
+        
+        while rclpy.ok():
+            with self.Mutex:
+                self.planner.feedback(self.state.position)
+            if self.planner.close_goal(self.planner.val,0.1):
+                 goal_handle.succeed()
+                 result = MotortRotate.Result()
+                 result.theta = self.planner.val
+                 return result
+            if goal_handle.is_cancel_requested:
+                result = MotortRotate.Result()
+                result.theta = self.planner.val
+                return result
+            
+            self.joint_cmd.position=[float(self.run())]
+            self.joint_cmd_pub.publish(self.joint_cmd)
+            time.sleep(0.1)
+
+
+        
     
-    def timer_callback(self):
-        cnt=cnt+1
-        time_rate = self.get_parameter('time_rate').value
-        self.motor.update(self.get_clock().now().to_msg(),cnt)
-        self.js_pub.publish(self.motor.state)
-        
-
-         
-
+    def sub_callback(self,msg):
+        for i,name in enumerate(msg.name):
+            if name == self.state.name:
+                with self.Mutex:
+                    self.state.position = msg.position[i]
+                    self.state.velocity =msg.velocity[i]
+                    self.state.effort = msg.effort[i]
+    # def timer_callback(self):
+    #     self.motor.update(self.get_clock().now().to_msg())
+    #     self.js_pub.publish(self.motor.state)
         
 
 
