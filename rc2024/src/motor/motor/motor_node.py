@@ -51,19 +51,19 @@ class BlinkPlanner():
 
 
 class Motor_node(Node):
-    def __init__(self,name:str,joint_name:str,reduction_ratio:float):
+    def __init__(self,name:str):
         super().__init__(name)
 
         self.state = JointState()
-        self.state.name =joint_name
-        self.js_feedback_sub = self.create_subscription(JointState,'joint_states',self.sub_callback)
+        self.state.name =['joint1']
+        self.js_feedback_sub = self.create_subscription(JointState,'joint_states',self.sub_callback,3)
         self.joint_cmd =JointState()
-        self.joint_cmd.name= joint_name
+        self.joint_cmd.name= ['joint1']
         self.joint_cmd_pub = self.create_publisher(JointState,'joint_cmd',1)
         self.Mutex = Lock()
         self.planner = BlinkPlanner
         self.action_server_ = ActionServer(
-            self, MotortRotate, 'motor_rotate', self.execute_callback
+            self, MotorRotate, 'motor_rotate', self.execute_callback
             # ,callback_group=MutuallyExclusiveCallbackGroup()
         )
 
@@ -75,11 +75,11 @@ class Motor_node(Node):
                 self.planner.feedback(self.state.position)
             if self.planner.close_goal(self.planner.val,0.1):
                  goal_handle.succeed()
-                 result = MotortRotate.Result()
+                 result = MotorRotate.Result()
                  result.theta = self.planner.val
                  return result
             if goal_handle.is_cancel_requested:
-                result = MotortRotate.Result()
+                result = MotorRotate.Result()
                 result.theta = self.planner.val
                 return result
             

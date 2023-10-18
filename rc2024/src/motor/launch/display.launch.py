@@ -22,6 +22,7 @@ def generate_launch_description():
          package='motor',
          executable='motor_node',
          name='motor_node1'
+
          )
 
     example_client = Node(
@@ -37,16 +38,17 @@ def generate_launch_description():
          )
     
     #rviz2_node负责显示机器人的信息
-    # rviz2_node = Node(
-    #     package='rviz2',
-    #     executable='rviz2',
-    #     name='rviz2',
-    #     output='screen',
-    #     )
+    rviz2_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        )
     
     #启动
-    #ld.add_action(robot_state_publisher_node)
-    #ld.add_action(joint_state_publisher_node)
-    #ld.add_action(rviz2_node)
+    ld.add_action(robot_state_publisher_node)
+    ld.add_action(joint_state_publisher_node)
+    ld.add_action(rviz2_node)
+    ld.add_action(example_client)
 
     return ld

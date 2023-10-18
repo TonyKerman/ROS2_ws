@@ -6,7 +6,7 @@ import time
 
 class Example_Client(Node):
     def __init__(self,name):
-        super.__init__(name)
+        super().__init__(name)
         self.action_client_ = ActionClient(self, MotorRotate, 'motor_rotate')
         time.sleep(3)
         self.send_goal()
@@ -15,8 +15,7 @@ class Example_Client(Node):
         goal_msg = MotorRotate.Goal()
         goal_msg.delta = 5.0
         self.action_client_.wait_for_server()
-        self._send_goal_future = self.action_client_.send_goal_async\
-            (goal_msg,feedback_callback=self.feedback_callback)                                                         feedback_callback=self.feedback_callback)
+        self._send_goal_future = self.action_client_.send_goal_async(goal_msg,feedback_callback=self.feedback_callback) 
         self._send_goal_future.add_done_callback(self.goal_response_callback)
     
     def goal_response_callback(self, future):

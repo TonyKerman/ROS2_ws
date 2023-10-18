@@ -20,7 +20,7 @@ class Pid_parms():
         self.kp,self.ki,self.kd = vals
     
 class Motor():
-    def __init__(self,motor_name:str)):
+    def __init__(self,motor_name:str):
         self.state = JointState()
         self.state.name =motor_name
         
