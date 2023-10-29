@@ -29,7 +29,8 @@ setup(
     entry_points={
         'console_scripts': [
             'r2_arm_display_node = r2_arm_test_01.r2_arm_display_node:main',
-            'r2_arm_test_node = r2_arm_test_01.r2_arm_test_node:main'
+            'r2_arm_test_node = r2_arm_test_01.r2_arm_test_node:main',
+            'client_node = r2_arm_test_01.example_client:main'
         ],
     },
 )

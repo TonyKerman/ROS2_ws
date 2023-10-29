@@ -1,17 +1,16 @@
-from typing import Iterator
+
 import rclpy
 from rclpy.node import Node
-from rclpy.timer import Timer
+from rclpy.action import ActionServer
+from rclpy.action.server import ServerGoalHandle
 # 1.导入消息类型JointState
 from sensor_msgs.msg import JointState
 from geometry_msgs.msg import TransformStamped
-from std_msgs.msg import Float32MultiArray
 from tf2_ros import StaticTransformBroadcaster
-from queue import Queue
 from scipy.spatial.transform import Rotation
 import numpy as np
 import time
-from std_msgs.msg import Float32
+from rc2024_interfaces.action import SeizeAndKick
 
 
 class ArmTestNode(Node):
@@ -28,30 +27,43 @@ class ArmTestNode(Node):
         R = Rotation.from_euler('xyz',(np.pi/2,0,0))
         static_tf_publisher.sendTransform(
             self.quat_to_TF('world','base_link', 0, 0, 0, R.as_quat()))
-        self.create_timer(0.1,self.timer_callback)
-        self.cnt = 0
-        
+        self.action_server_ = ActionServer(
+            self, SeizeAndKick, 'kick_ball', self.kick_ball_execute
+            # ,callback_group=MutuallyExclusiveCallbackGroup()
+        )
 
-    def timer_callback(self):
-        self.tgt_js.header.stamp =  self.get_clock().now().to_msg()
-        if self.cnt<8:
-            self.tgt_js.position = [0.,0.,0.]
-        elif self.cnt<10:
-            self.tgt_js.position = [0.,1.588,1.57]
-        elif self.cnt<15:
-            self.tgt_js.position = [0.,1.588,0.711]
-        elif self.cnt<17:
-            self.tgt_js.position = [4.542,1.588,0.711]
-        elif self.cnt<18 :
-            self.tgt_js.position = [4.542,1.588,1.57]
-        else:
-            self.tgt_js.position = [0.,0.,0.]
-        joint_cmd  = JointState()
-        joint_cmd.position=self.tgt_js.position
-        self.joint_state_pub.publish(joint_cmd)
-        self.joint_cmd_pub.publish(joint_cmd)
-        self.joint_state_pub.publish(self.tgt_js)
-        self.cnt+=0.1
+    def kick_ball_execute(self, goal_handle: ServerGoalHandle):
+        cnt_ms = 0
+        tgt_list = [
+                {'time':1000,'pos':[5.25,1.16,1.3]},
+                {'time':1200,'pos':[5.25,1.16,0.3]},
+                {'time':1500,'pos':[3.53,2.01,0.3]},
+                {'time':2400,'pos':[1.94,-1.6,0.3]},
+                {'time':2800,'pos':[1.21,-2.01,0.3]},
+                {'time':3000,'pos':[1.21,-2.01,1.3]},
+                {'time':4000,'pos':[1.21,-2.01,1.3]},]
+        for i in range(len(tgt_list)):
+            while cnt_ms<tgt_list[i]['time']*1.5:
+                self.tgt_js.position=tgt_list[i]['pos']
+                joint_cmd  = JointState()
+                joint_cmd.position=self.tgt_js.position
+                self.joint_cmd_pub.publish(joint_cmd)
+                self.tgt_js.header.stamp =  self.get_clock().now().to_msg()
+                self.joint_state_pub.publish(self.tgt_js)
+        
+                if goal_handle.is_cancel_requested:
+                    #self.get_logger().info('cancel!')
+                    result = SeizeAndKick.Result()
+                    result.time = cnt_ms
+                    return result
+                cnt_ms +=100
+                time.sleep(0.1)
+        
+        goal_handle.succeed()
+        result = SeizeAndKick.Result()
+        result.time = cnt_ms
+        return result
+        
 
  
     def quat_to_TF(self, A: str, B: str, tx: float, ty: float, tz: float, q: list):

@@ -12,6 +12,8 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "action/MotorRotate.action"
   "action/ChassisMove.action"
+  "action/ChassisMoveTo.action"
+  "action/SeizeAndKick.action"
 )
 
 

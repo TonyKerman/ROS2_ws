@@ -50,8 +50,8 @@
       link="Link1" />
     <axis
       xyz="1 0 0" />
-      <limit effort="1000.0" lower="0" 
-    upper="6.28" velocity="0.5"/>
+      <limit effort="1000.0" lower="1.0471" 
+    upper="5.23" velocity="0.5"/>
   </joint>
   <link
     name="Link2">

@@ -7,9 +7,6 @@ from rclpy.action import ActionServer
 from rclpy.action.server import ServerGoalHandle
 import rclpy
 from std_msgs.msg import Float64MultiArray
-from geometry_msgs.msg import Point
-from geometry_msgs.msg import Quaternion
-#from sensor_msgs.msg import JointState
 from geometry_msgs.msg import PoseStamped
 from builtin_interfaces.msg import Time
 #from rcl_interfaces.msg import ParameterDescriptor

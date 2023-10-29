@@ -21,7 +21,11 @@ def generate_launch_description():
         executable='r2_arm_test_node',
         name='arm_node'
         )
-
+    client_node = Node(
+        package=package_name,
+        executable='client_node',
+        name='client_node'
+        )
     #robot_state_publisher_node负责发布机器人模型信息robot_description，并将joint_states数据转换tf信息发布
 
 
@@ -43,6 +47,7 @@ def generate_launch_description():
 
         )
     ld.add_action(arm_node)
+    ld.add_action(client_node)
     ld.add_action(robot_state_publisher_node)
     ld.add_action(rviz2_node)
 
