@@ -11,5 +11,6 @@
 	path = lib_source_codes/joint_state_publisher
 	url = https://github.com/ros/joint_state_publisher	
 
-
-
+[submodule "micro_ros_setup"]
+	path = microros_ws/src/micro_ros_setup
+	url = https://github.com/micro-ROS/micro_ros_setup
